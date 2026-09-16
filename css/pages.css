@@ -1,0 +1,120 @@
+/* ==========================================================================
+   EDITH pages.css — shared patterns for every module/secondary page
+   (brief §6 module specs, §12 design direction). Homepage keeps its own
+   homepage.css; this file is for everything else.
+   ========================================================================== */
+
+/* ---- Page hero (lighter than the homepage hero — no full-bleed image) ---- */
+.page-hero { background: var(--edith-navy-900); color: var(--edith-white); padding-block: var(--space-8) var(--space-7); }
+.page-hero__eyebrow { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--edith-gold-600); margin-bottom: var(--space-3); }
+.page-hero h1 { color: var(--edith-white); font-size: clamp(2rem, 4vw, var(--text-3xl)); }
+.page-hero p { color: rgba(255,255,255,0.82); max-width: 60ch; }
+.page-hero__actions { display: flex; gap: var(--space-4); margin-top: var(--space-5); flex-wrap: wrap; }
+
+/* ---- Comparison table (§6.1 discounted-flat vs return, plot vs flat, etc) ---- */
+.compare-table { width: 100%; border-collapse: collapse; background: var(--edith-white); }
+.compare-table th, .compare-table td { text-align: left; padding: var(--space-4); border: 1px solid var(--edith-line-200); font-size: var(--text-sm); vertical-align: top; }
+.compare-table th { background: var(--edith-paper-100); font-family: var(--font-display); font-weight: 600; }
+.table-scroll { overflow-x: auto; }
+
+/* ---- Worked example / illustrative callout ---- */
+.example-box { background: var(--edith-paper-100); border-left: 3px solid var(--edith-gold-600); padding: var(--space-5); margin-block: var(--space-6); }
+.example-box strong { display: block; font-family: var(--font-display); color: var(--edith-navy-900); margin-bottom: var(--space-2); }
+
+/* ---- Service / offering cards (§6.3, §6.4) ---- */
+.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.offer-card { background: var(--edith-white); border: 1px solid var(--edith-line-200); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+.offer-card h3 { font-size: var(--text-md); margin-bottom: 0; }
+.offer-card__meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--edith-ink-600); }
+.offer-card__price { font-family: var(--font-display); color: var(--edith-green-600); font-weight: 600; margin-top: auto; }
+@media (max-width: 900px) { .offer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .offer-grid { grid-template-columns: 1fr; } }
+
+/* ---- Form card (capture forms across every module — §6.1-§6.8) ---- */
+.form-card { background: var(--edith-white); border: 1px solid var(--edith-line-200); box-shadow: var(--shadow-card); padding: var(--space-6); }
+.form-card h2 { font-size: var(--text-lg); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+.form-grid--full { grid-column: 1 / -1; }
+.field label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-2); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 0.65rem 0.8rem; border: 1px solid var(--edith-line-200);
+  border-radius: var(--radius-sm); font: inherit; background: var(--edith-paper-50);
+}
+.field textarea { min-height: 100px; resize: vertical; }
+.field-hint { font-size: var(--text-xs); color: var(--edith-ink-600); margin-top: var(--space-1); }
+.consent-row { display: flex; gap: var(--space-3); align-items: flex-start; font-size: var(--text-sm); margin-block: var(--space-5); }
+.consent-row input { margin-top: 0.3rem; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+/* ---- Two-column layout: content + sticky form ---- */
+.split-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-8); align-items: start; }
+.split-layout .form-card { position: sticky; top: 90px; }
+@media (max-width: 960px) { .split-layout { grid-template-columns: 1fr; } .split-layout .form-card { position: static; } }
+
+/* ---- Step timeline (§6.7 Train -> Placed -> Build profile -> Funding -> Share) ---- */
+.step-timeline { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--edith-line-200); margin-left: var(--space-2); }
+.step-timeline__item { position: relative; padding: var(--space-2) 0 var(--space-6) var(--space-6); }
+.step-timeline__item::before {
+  content: ""; position: absolute; left: -7px; top: var(--space-2); width: 12px; height: 12px;
+  border-radius: 50%; background: var(--edith-gold-600); border: 2px solid var(--edith-paper-50);
+}
+.step-timeline__item h3 { font-size: var(--text-md); margin-bottom: var(--space-1); }
+.step-timeline__item p { font-size: var(--text-sm); color: var(--edith-ink-600); margin-bottom: 0; }
+
+/* ---- Three-part story (§6.6: EDITH provides / partner provides / how both win) ---- */
+.story-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.story-columns > div { border-top: 3px solid var(--edith-gold-600); padding-top: var(--space-4); }
+.story-columns h3 { font-size: var(--text-md); }
+.story-columns ul { padding-left: 1.1rem; font-size: var(--text-sm); color: var(--edith-ink-600); }
+@media (max-width: 900px) { .story-columns { grid-template-columns: 1fr; } }
+
+/* ---- Listings grid (§6.8 property marketplace) ---- */
+.listing-filters { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-6); }
+.listing-filters select, .listing-filters input {
+  padding: 0.55rem 0.8rem; border: 1px solid var(--edith-line-200); border-radius: var(--radius-sm); font: inherit; font-size: var(--text-sm);
+}
+.listing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.listing-card { background: var(--edith-white); border: 1px solid var(--edith-line-200); }
+.listing-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.listing-card__body { padding: var(--space-4); }
+.listing-card__price { font-family: var(--font-display); color: var(--edith-green-600); font-weight: 600; }
+.badge-verified {
+  display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs);
+  background: var(--edith-green-600); color: var(--edith-white); padding: 0.15rem 0.5rem; margin-bottom: var(--space-2);
+}
+@media (max-width: 900px) { .listing-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .listing-grid { grid-template-columns: 1fr; } }
+
+/* ---- Quote wizard (§6.4 multi-step) ---- */
+.wizard { background: var(--edith-white); border: 1px solid var(--edith-line-200); box-shadow: var(--shadow-card); max-width: 640px; }
+.wizard__steps { display: flex; border-bottom: 1px solid var(--edith-line-200); }
+.wizard__steps span {
+  flex: 1; text-align: center; padding: var(--space-3); font-size: var(--text-xs); font-family: var(--font-mono);
+  color: var(--edith-ink-600); border-bottom: 3px solid transparent;
+}
+.wizard__steps span.is-active { color: var(--edith-navy-900); border-bottom-color: var(--edith-gold-600); font-weight: 600; }
+.wizard__panel { padding: var(--space-6); display: none; }
+.wizard__panel.is-active { display: block; }
+.wizard__nav { display: flex; justify-content: space-between; margin-top: var(--space-5); }
+.wizard__estimate { background: var(--edith-paper-100); border-left: 3px solid var(--edith-green-600); padding: var(--space-5); margin-top: var(--space-5); }
+
+/* ---- Generic pill / badge ---- */
+.pill {
+  display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs);
+  border: 1px solid var(--edith-line-200); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm);
+}
+
+/* ---- FAQ accordion ---- */
+.faq-item { border-bottom: 1px solid var(--edith-line-200); }
+.faq-item summary { padding: var(--space-4) 0; font-weight: 600; cursor: pointer; }
+.faq-item p { padding-bottom: var(--space-4); color: var(--edith-ink-600); }
+
+/* ---- Office listing (contact page) — HQ gets lead billing ---- */
+.office-block { padding: var(--space-4) 0; border-bottom: 1px solid var(--edith-line-200); }
+.office-block__tag {
+  display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs);
+  padding: 0.15rem 0.5rem; margin-bottom: var(--space-2);
+}
+.office-block--hq .office-block__tag { background: var(--edith-gold-600); color: var(--edith-navy-900); }
+.office-block:not(.office-block--hq) .office-block__tag { border: 1px solid var(--edith-line-200); color: var(--edith-ink-600); }
+.office-block p { margin-bottom: 0; }

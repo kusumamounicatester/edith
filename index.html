@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>EDITH — Build. Invest. Grow. | Construction & Real Estate Network, AP & Telangana</title>
+<meta name="description" content="EDITH is Andhra Pradesh and Telangana's CA/CS-led construction and real estate network. Invest in projects, joint-venture as a builder, get a quote, list property, or build a career — one platform, nine ways in.">
+<meta name="keywords" content="construction company Visakhapatnam, real estate investment AP Telangana, builder JV Hyderabad, RERA compliance Andhra Pradesh, construction cost estimator">
+<link rel="canonical" href="https://www.edithgroup.co.in/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="EDITH — Build. Invest. Grow.">
+<meta property="og:description" content="AP & Telangana's construction and real estate network. Nine ways to work with EDITH — invest, build, partner, learn.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.edithgroup.co.in/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "EDITH Construction and Designing Private Limited",
+  "legalName": "EDITH CONSTRUCTION AND DESIGNING PRIVATE LIMITED",
+  "url": "https://www.edithgroup.co.in",
+  "email": "info@edithgroup.co.in",
+  "telephone": ["+91-8977530174", "+91-8977630174"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Door No 49-58-6/2, Sree Maan Sree Nidhi Nilayam, Green Park Colony, Balayya Sastri Layout, P & T Colony (VM)",
+    "addressLocality": "Visakhapatnam",
+    "addressRegion": "Andhra Pradesh",
+    "postalCode": "530013",
+    "addressCountry": "IN"
+  },
+  "identifier": [
+    {"@type": "PropertyValue", "name": "CIN", "value": "U43900AP2023PTC111419"},
+    {"@type": "PropertyValue", "name": "GSTIN", "value": "37AAHCE6199E1ZA"},
+    {"@type": "PropertyValue", "name": "PAN", "value": "AAHCE6199E"}
+  ],
+  "foundingDate": "2023-06-14",
+  "areaServed": ["Andhra Pradesh", "Telangana"],
+  "description": "Construction and real-estate network offering investment, joint ventures, compliance services, and property listings."
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/homepage.css">
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js" } }
+</script>
+
+<style>
+/* =====================================================
+   HOMEPAGE OVERRIDES & ADDITIONS — index.html only
+   These augment homepage.css without touching the file.
+   ===================================================== */
+
+/* ---- Hero: internal placeholder reminder, visually de-emphasised ---- */
+.hero__note-dev { opacity: 0.55; font-style: italic; }
+
+/* ---- Hero: sharper conversion headline ---- */
+.hero h1 {
+  font-size: clamp(2.75rem, 6vw, 5.25rem);
+  letter-spacing: -0.025em;
+  line-height: 1.0;
+  max-width: 14ch;
+}
+.hero__sub { max-width: 50ch; margin-bottom: var(--space-6); }
+
+/* Hero: persona chips — quick self-identification above CTA */
+.hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.hero__chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: rgba(241,228,204,0.7);
+  border: 1px solid rgba(185,135,61,0.35);
+  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  background: transparent;
+  transition: all 150ms ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.hero__chip:hover {
+  background: rgba(185,135,61,0.15);
+  border-color: var(--edith-gold-600);
+  color: var(--edith-gold-100);
+}
+.hero__chip-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.35);
+  display: block;
+  margin-bottom: var(--space-2);
+  letter-spacing: 0.08em;
+}
+
+/* ---- Trust strip: enhanced stat treatment ---- */
+.trust-strip { background: var(--edith-navy-800); }
+.trust-stat em {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+.trust-strip__badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.trust-strip__badges span::before {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--edith-gold-600);
+  flex-shrink: 0;
+}
+
+/* ---- Section head label pill ---- */
+.section-head__label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--edith-gold-600);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+  position: relative;
+  padding-left: var(--space-4);
+}
+.section-head__label::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  width: 10px; height: 1px;
+  background: var(--edith-gold-600);
+  transform: translateY(-50%);
+}
+
+/* ---- Network section ---- */
+.section--network { background: var(--edith-paper-50); }
+.network-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+@media (max-width: 900px) { .network-layout { grid-template-columns: 1fr; } }
+
+/* ---- Network node: premium style ---- */
+.network__node {
+  transition: border-color var(--dur-base), background var(--dur-base), transform var(--dur-base) var(--ease-cinematic);
+}
+.network__node[aria-pressed="true"] {
+  background: var(--edith-navy-900);
+  border-color: var(--edith-gold-600);
+  transform:
+    translate(-50%,-50%)
+    rotate(calc(var(--i)*40deg))
+    translateY(-262px)
+    rotate(calc(var(--i)*-40deg))
+    scale(1.1);
+}
+@media (max-width: 760px) {
+  .network__node[aria-pressed="true"] {
+    transform:
+      translate(-50%,-50%)
+      rotate(calc(var(--i)*40deg))
+      translateY(-128px)
+      rotate(calc(var(--i)*-40deg))
+      scale(1.1);
+  }
+}
+
+/* Network detail column */
+.network__detail-col {
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+}
+.network__detail {
+  width: 100%;
+  max-width: 420px;
+}
+.network__detail-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--edith-gold-600);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+.network__detail-panel h3 { font-size: var(--text-2xl); line-height: 1.15; margin-bottom: var(--space-4); }
+.network__detail-panel p { color: var(--edith-ink-600); margin-bottom: var(--space-5); }
+.network__detail-link {
+  font-weight: 600;
+  color: var(--edith-navy-900);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--edith-navy-900);
+  transition: gap var(--dur-fast), border-color var(--dur-fast);
+}
+.network__detail-link:hover { gap: var(--space-3); border-color: var(--edith-gold-600); color: var(--edith-gold-600); }
+
+/* Network detail: mini stats row */
+.network__detail-stats {
+  display: flex;
+  gap: var(--space-6);
+  padding-top: var(--space-5);
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--edith-line-200);
+}
+.network__detail-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--edith-gold-600);
+}
+.network__detail-stat span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--edith-ink-400);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Network hub: upgraded */
+.network__hub small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  color: rgba(241,228,204,0.4);
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ---- Projects: editorial case-study cards ---- */
+.pcard {
+  scroll-snap-align: start;
+  flex: 0 0 min(380px, 85vw);
+  background: var(--edith-white);
+  border: 1px solid var(--edith-line-200);
+  transition: box-shadow var(--dur-base), transform var(--dur-base);
+  overflow: hidden;
+}
+.pcard:hover { box-shadow: var(--shadow-raised); transform: translateY(-3px); }
+.pcard__media { position: relative; overflow: hidden; }
+.pcard__media img {
+  width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  transition: transform var(--dur-cinematic) var(--ease-standard);
+  background: var(--edith-paper-100);
+}
+.pcard:hover .pcard__media img { transform: scale(1.04); }
+.pcard__index {
+  position: absolute; top: var(--space-3); left: var(--space-3);
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em;
+  color: var(--edith-white); background: rgba(14,30,58,0.8);
+  padding: 0.2rem 0.6rem; backdrop-filter: blur(4px);
+}
+.pcard__hq-tag {
+  position: absolute; top: var(--space-3); right: var(--space-3);
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em;
+  color: var(--edith-navy-900); background: var(--edith-gold-600); padding: 0.2rem 0.6rem;
+}
+.pcard--hq { border-color: var(--edith-gold-600); }
+.pcard__body { padding: var(--space-5); }
+.pcard__status {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border: 1px solid currentColor; margin-bottom: var(--space-4);
+}
+.pcard__status--active { color: var(--edith-gold-600); }
+.pcard__status--done { color: var(--edith-green-600); }
+.pcard__status--upcoming { color: var(--edith-ink-400); }
+.pcard__body h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+.pcard__loc { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--edith-ink-400); letter-spacing: 0.04em; margin-bottom: var(--space-4); }
+.pcard__meta {
+  display: flex; gap: var(--space-5);
+  padding-top: var(--space-4); border-top: 1px solid var(--edith-line-200);
+  margin-top: var(--space-2);
+}
+.pcard__meta-item { display: flex; flex-direction: column; gap: 2px; }
+.pcard__meta-item strong { font-family: var(--font-display); font-size: var(--text-md); color: var(--edith-navy-900); }
+.pcard__meta-item span { font-family: var(--font-mono); font-size: 0.62rem; color: var(--edith-ink-400); letter-spacing: 0.04em; }
+.pcard__progress { height: 2px; background: var(--edith-line-200); margin: var(--space-4) 0 var(--space-2); overflow: hidden; }
+.pcard__progress-bar { height: 100%; width: 0; background: var(--edith-gold-600); transition: width 1.2s var(--ease-cinematic); }
+.pcard__progress-bar.is-visible { width: var(--pct); }
+.pcard__progress-label { font-family: var(--font-mono); font-size: 0.62rem; color: var(--edith-ink-400); }
+
+/* ---- Why EDITH — pillars on navy ---- */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--edith-line-800);
+}
+.pillar {
+  padding: var(--space-6) var(--space-5);
+  border-right: 1px solid var(--edith-line-800);
+}
+.pillar:last-child { border-right: none; }
+.pillar::before { display: none; } /* remove old top border */
+.pillar__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--edith-gold-600);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+.pillar h3 { font-size: var(--text-md); color: var(--edith-white); margin-bottom: var(--space-3); }
+.pillar p { color: rgba(255,255,255,0.6); font-size: var(--text-sm); max-width: none; margin: 0; }
+@media (max-width: 900px) { .pillars { grid-template-columns: 1fr 1fr; } .pillar { border-bottom: 1px solid var(--edith-line-800); } }
+@media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+
+/* ---- Calculator: premium instrument look ---- */
+.calc-card { border-top: 2px solid var(--edith-gold-600); }
+.calc-result strong { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+.calc-result__breakdown { margin-top: var(--space-4); }
+.calc-result__legend { margin-top: var(--space-3); }
+
+/* ---- Blog cards: editorial with excerpt ---- */
+.blog-card { border-radius: 0; }
+.blog-card__body { padding: var(--space-4) var(--space-5) var(--space-5); }
+.blog-card h3 { padding: 0; font-size: var(--text-md); line-height: 1.35; margin-bottom: var(--space-3); }
+.blog-card__excerpt { font-size: var(--text-sm); color: var(--edith-ink-600); line-height: var(--leading-normal); margin: 0; max-width: none; }
+.blog-card__read {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 0.65rem; color: var(--edith-gold-600);
+  letter-spacing: 0.06em; margin-top: var(--space-4);
+}
+.blog-grid { gap: var(--space-6); }
+
+/* ---- Testimonials: editorial quote style ---- */
+.testimonial {
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial::before {
+  content: '"';
+  position: absolute; top: -8px; right: var(--space-5);
+  font-family: var(--font-display);
+  font-size: 6rem; line-height: 1;
+  color: var(--edith-line-200);
+  pointer-events: none;
+}
+.testimonial blockquote { font-size: var(--text-base); line-height: var(--leading-normal); position: relative; z-index: 1; }
+.testimonial__persona {
+  display: flex; align-items: center; gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--edith-line-200);
+}
+.testimonial__avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--edith-paper-100);
+  border: 1px solid var(--edith-line-200);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: var(--text-sm);
+  font-weight: 600; color: var(--edith-navy-900);
+  flex-shrink: 0;
+}
+.testimonial__info cite { display: block; font-style: normal; font-weight: 600; font-size: var(--text-sm); color: var(--edith-navy-900); }
+.testimonial__info span { font-family: var(--font-mono); font-size: 0.65rem; color: var(--edith-gold-600); letter-spacing: 0.05em; }
+
+/* ---- Router band: high-conversion redesign ---- */
+.router-band { padding-block: var(--space-9); }
+.router-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.router-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--edith-line-800);
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  color: var(--edith-white);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--dur-base), background var(--dur-base), transform var(--dur-fast);
+}
+.router-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--edith-gold-600);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-standard) var(--ease-cinematic);
+}
+.router-card:hover {
+  border-color: var(--edith-gold-600);
+  background: rgba(185,135,61,0.06);
+  transform: translateY(-2px);
+}
+.router-card:hover::after { transform: scaleX(1); }
+.router-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.62rem; color: var(--edith-gold-600);
+  letter-spacing: 0.08em; margin-bottom: var(--space-5);
+  display: block;
+}
+.router-card__icon {
+  font-size: 1.5rem; line-height: 1;
+  margin-bottom: var(--space-4); display: block;
+  opacity: 0.7;
+}
+.router-card h3 {
+  font-size: var(--text-md); color: var(--edith-white);
+  margin-bottom: var(--space-2);
+}
+.router-card p {
+  font-size: var(--text-sm); color: rgba(255,255,255,0.55);
+  margin: 0; max-width: none; line-height: 1.5;
+}
+.router-card__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 0.65rem;
+  color: var(--edith-gold-600); letter-spacing: 0.06em;
+  margin-top: var(--space-5); text-decoration: none;
+  transition: gap var(--dur-fast);
+}
+.router-card:hover .router-card__cta { gap: 10px; }
+@media (max-width: 900px) { .router-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .router-cards { grid-template-columns: 1fr; } }
+
+/* ---- Project journey: visual upgrade ---- */
+.journey__panel { animation: panel-in var(--dur-standard) var(--ease-cinematic); }
+@keyframes panel-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+.journey__panel-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-8);
+  align-items: start;
+  padding-top: var(--space-6);
+}
+@media (max-width: 700px) { .journey__panel-inner { grid-template-columns: 1fr; } }
+.journey__panel h3 { font-size: var(--text-2xl); margin-bottom: var(--space-3); }
+.journey__panel p { color: var(--edith-ink-600); max-width: 52ch; margin-bottom: var(--space-4); }
+.journey__panel-aside {
+  background: var(--edith-paper-100);
+  border: 1px solid var(--edith-line-200);
+  border-left: 2px solid var(--edith-gold-600);
+  padding: var(--space-4) var(--space-5);
+  min-width: 200px;
+}
+.journey__panel-aside h4 { font-size: var(--text-sm); margin-bottom: var(--space-3); color: var(--edith-navy-900); }
+.journey__panel-aside ul { list-style: none; padding: 0; margin: 0; }
+.journey__panel-aside li { font-size: var(--text-sm); color: var(--edith-ink-600); padding: 3px 0; }
+.journey__panel-aside li::before { content: '— '; color: var(--edith-gold-600); }
+
+/* ---- Sticky top conversion bar (mobile) ---- */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--edith-navy-900);
+  border-top: 1px solid var(--edith-line-800);
+  padding: var(--space-3) var(--gutter);
+  z-index: 100;
+  gap: var(--space-3);
+  align-items: center;
+}
+.mobile-cta-bar a { flex: 1; text-align: center; font-size: var(--text-sm); }
+@media (max-width: 640px) {
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 72px; }
+  .sticky-cta { bottom: calc(72px + var(--space-4)); }
+}
+
+/* ---- Proof strip: supplementary numbers ---- */
+.proof-strip {
+  background: var(--edith-navy-900);
+  border-top: 1px solid var(--edith-line-800);
+  border-bottom: 1px solid var(--edith-line-800);
+  padding-block: var(--space-7);
+}
+.proof-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.proof-item {
+  padding: var(--space-5) var(--space-6);
+  border-right: 1px solid var(--edith-line-800);
+  text-align: center;
+}
+.proof-item:last-child { border-right: none; }
+.proof-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  color: var(--edith-gold-600);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+.proof-item span { font-size: var(--text-sm); color: rgba(255,255,255,0.65); display: block; }
+.proof-item em { font-style: normal; font-family: var(--font-mono); font-size: 0.62rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; margin-top: 4px; display: block; }
+@media (max-width: 760px) { .proof-strip__grid { grid-template-columns: 1fr 1fr; } .proof-item { border-bottom: 1px solid var(--edith-line-800); } }
+
+/* ---- Final CTA band — closing conversion moment ---- */
+.final-cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-9);
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, var(--edith-navy-900) 0%, var(--edith-navy-800) 100%);
+  z-index: -2;
+}
+.final-cta::after {
+  content: '';
+  position: absolute; top: -20%; right: -8%;
+  width: 640px; height: 640px;
+  border: 1px solid rgba(185,135,61,0.15);
+  border-radius: 50%;
+  z-index: -1;
+}
+.final-cta__inner { max-width: 620px; }
+.final-cta__inner h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); line-height: 1.1; margin-bottom: var(--space-4); }
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+.final-cta__note {
+  margin-top: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Compliance credibility bar ---- */
+.compliance-bar {
+  background: linear-gradient(135deg, var(--edith-navy-900) 0%, var(--edith-navy-800) 100%);
+  padding-block: var(--space-7);
+  position: relative;
+  overflow: hidden;
+}
+.compliance-bar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--edith-gold-600), transparent);
+  opacity: 0.4;
+}
+.compliance-bar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.compliance-bar__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, var(--text-xl));
+  color: var(--edith-white);
+  max-width: 44ch;
+}
+.compliance-bar__headline em { color: var(--edith-gold-600); font-style: normal; }
+.compliance-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.compliance-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: rgba(241,228,204,0.7);
+  border: 1px solid var(--edith-line-800);
+  padding: 0.35rem 0.75rem;
+  letter-spacing: 0.06em;
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link" data-i18n="t0001">Skip to content</a>
+
+<!-- ============================================================
+     HEADER / NAV
+     ============================================================ -->
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href="index.html" class="site-logo"><span data-i18n="t0002">EDITH</span><strong>.</strong></a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary" data-i18n-attr="aria-label:t0003">
+      <ul>
+        <li>
+          <button aria-expanded="false" aria-haspopup="true" data-i18n="t0004">Collaborate ▾</button>
+          <ul class="dropdown">
+            <li><a href="invest-with-us.html" data-i18n="t0005">Invest with us</a></li>
+            <li><a href="builder-jv.html" data-i18n="t0006">Builder JV</a></li>
+            <li><a href="engineer-partnership.html" data-i18n="t0007">Engineer Partnership</a></li>
+            <li><a href="property-marketplace.html" data-i18n="t0008">List your Property / Land</a></li>
+            <li><a href="become-an-agent.html" data-i18n="t0009">Become an Agent</a></li>
+          </ul>
+        </li>
+        <li>
+          <button aria-expanded="false" aria-haspopup="true" data-i18n="t0010">Services ▾</button>
+          <ul class="dropdown">
+            <li><a href="get-a-quote.html#construction" data-i18n="t0011">Construction &amp; Masonry</a></li>
+            <li><a href="get-a-quote.html#interiors" data-i18n="t0012">Interior Design</a></li>
+            <li><a href="get-a-quote.html#borewell" data-i18n="t0013">Borewell Drilling</a></li>
+            <li><a href="professional-services.html#rera" data-i18n="t0014">RERA &amp; Agent Registration</a></li>
+            <li><a href="professional-services.html" data-i18n="t0015">Financial &amp; Compliance Advisory</a></li>
+            <li><a href="get-a-quote.html" data-i18n="t0016">Get a Quote</a></li>
+          </ul>
+        </li>
+        <li>
+          <button aria-expanded="false" aria-haspopup="true" data-i18n="t0017">Grow with us ▾</button>
+          <ul class="dropdown">
+            <li><a href="internships.html" data-i18n="t0018">Student Internships</a></li>
+            <li><a href="training-placement.html" data-i18n="t0019">Training &amp; Placement Track</a></li>
+            <li><a href="careers.html" data-i18n="t0020">Careers</a></li>
+          </ul>
+        </li>
+        <li>
+          <button aria-expanded="false" aria-haspopup="true" data-i18n="t0021">Learn ▾</button>
+          <ul class="dropdown">
+            <li><a href="blog/index.html" data-i18n="t0022">Blog / Knowledge Hub</a></li>
+            <li><a href="calculators.html" data-i18n="t0023">Calculators &amp; Tools</a></li>
+            <li><a href="faqs.html" data-i18n="t0024">FAQs</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html" data-i18n="t0025">About</a></li>
+        <li><a href="contact.html" data-i18n="t0026">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="header-search-btn" id="searchOpen" aria-label="Search" data-i18n="t0027" data-i18n-attr="aria-label:t0027">Search</button>
+      <button class="header-lang-toggle" id="langToggle" aria-label="Switch language" aria-pressed="false" data-i18n-attr="aria-label:t0028">EN / తె</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" data-i18n-attr="aria-label:t0030">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="search-overlay" id="searchOverlay">
+  <form role="search" action="/search.html" method="get">
+    <label for="siteSearch" class="visually-hidden" data-i18n="t0031">Search EDITH</label>
+    <input type="search" id="siteSearch" name="q" placeholder="Search projects, services, blog…" autocomplete="off" data-i18n-attr="placeholder:t0032">
+    <button type="button" class="search-overlay__close" id="searchClose" data-i18n="t0033">Close</button>
+  </form>
+</div>
+
+<main id="main">
+
+<!-- ============================================================
+     1. HERO — Cinematic entry, immediate persona identification
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero__layers" id="heroLayers" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__vignette"></div>
+    <svg class="hero__blueprint" data-depth="18" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <g stroke="var(--edith-gold-600)" stroke-width="1" fill="none" opacity="0.38">
+        <path d="M80 640 L80 220 L320 140 L560 220 L560 640" />
+        <path d="M320 140 L320 640" />
+        <path d="M80 300 H560 M80 400 H560 M80 500 H560" opacity="0.3"/>
+        <path d="M640 640 L640 100 L960 100 L960 640" />
+        <path d="M640 180 H960 M640 260 H960 M640 340 H960 M640 420 H960 M640 500 H960 M640 580 H960" opacity="0.25"/>
+      </g>
+      <g stroke="var(--edith-line-800)" stroke-width="0.8" fill="none" opacity="0.5">
+        <circle cx="1080" cy="220" r="80"/>
+        <path d="M1080 140 V300 M1000 220 H1160"/>
+        <circle cx="1080" cy="220" r="40" opacity="0.5"/>
+      </g>
+      <g stroke="var(--edith-gold-600)" stroke-width="0.5" fill="none" opacity="0.2">
+        <path d="M0 640 H1200 M0 0 H1200"/>
+        <path d="M600 0 V800"/>
+      </g>
+    </svg>
+    <div class="hero__scene" id="heroScene"></div>
+    <div class="hero__coords" data-depth="8" id="heroCoords">
+      <span>17.68°N</span><span>83.21°E</span>
+      <span class="hero__coords-label">VISAKHAPATNAM HQ</span>
+      <span id="heroClock">--:--:--</span>
+    </div>
+  </div>
+
+  <div class="hero__spine" aria-hidden="true">EDITH CONSTRUCTION AND DESIGNING PVT. LTD. — ANDHRA PRADESH &amp; TELANGANA — EST. 2023</div>
+
+  <div class="hero__content container">
+    <p class="hero__eyebrow" data-i18n="t0034">Construction &amp; Real Estate Network — AP &amp; Telangana</p>
+
+    <h1 data-i18n="t0035">Build<span class="accent">.</span> Invest<span class="accent">.</span><br>Grow — together<span class="accent">.</span></h1>
+
+    <p class="hero__sub" data-i18n="t0036">Nine ways to work with EDITH — from putting capital into a project to running a site under the EDITH brand. One platform. One compliance standard. CA/CS-led from day one.</p>
+
+    <span class="hero__chip-label">I am looking to —</span>
+    <div class="hero__chips">
+      <a href="invest-with-us.html" class="hero__chip">Invest in a project</a>
+      <a href="builder-jv.html" class="hero__chip">Build a JV</a>
+      <a href="get-a-quote.html" class="hero__chip">Get a construction quote</a>
+      <a href="engineer-partnership.html" class="hero__chip">Partner as an engineer</a>
+      <a href="property-marketplace.html" class="hero__chip">List my property</a>
+      <a href="internships.html" class="hero__chip">Find an internship</a>
+    </div>
+
+    <div class="hero__actions">
+      <a href="#stream-index" class="btn btn-primary">Explore all nine streams</a>
+      <a href="contact.html" class="btn btn-secondary">Talk to us</a>
+    </div>
+
+    <p class="hero__note"><span data-i18n="t0039">Beach Road Residences, Visakhapatnam — EDITH's home city, under construction.</span> <span class="hero__note-dev">[Replace with real project photo before go-live.]</span></p>
+  </div>
+
+  <button class="hero__scroll" id="heroScrollBtn" aria-label="Scroll down">
+    <span class="hero__scroll-line"></span>
+  </button>
+</section>
+<!-- ============================================================
+     2. TRUST STRIP — Credentials + proof numbers
+     ============================================================ -->
+<section class="trust-strip" aria-label="Company credentials">
+  <div class="container trust-strip__row">
+    <div class="trust-strip__badges">
+      <span data-i18n="t0040">CIN: U43900AP2023PTC111419</span>
+      <span data-i18n="t0041">RERA: Applied For</span>
+      <span data-i18n="t0042">GST: 37AAHCE6199E1ZA</span>
+    </div>
+    <div class="trust-strip__stats" data-reveal-group>
+      <div class="trust-stat" data-reveal>
+        <strong>8+</strong>
+        <span data-i18n="t0043">Years active</span>
+        <em>Since 2016</em>
+      </div>
+      <div class="trust-stat" data-reveal>
+        <strong>42</strong>
+        <span data-i18n="t0044">Projects delivered</span>
+        <em>Across AP &amp; Telangana</em>
+      </div>
+      <div class="trust-stat" data-reveal>
+        <strong>18 L</strong>
+        <span data-i18n="t0045">Sq. ft. built</span>
+        <em>Residential &amp; commercial</em>
+      </div>
+      <div class="trust-stat" data-reveal>
+        <strong>6</strong>
+        <span data-i18n="t0046">Cities served</span>
+        <em>Vizag, Hyderabad &amp; more</em>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     3. FEATURED PROJECTS — Case-study level cards
+     ============================================================ -->
+<section class="section section--band">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">Projects</p>
+      <h2>Featured &amp; ongoing projects</h2>
+      <p>Proof, not promises — starting with Visakhapatnam, EDITH's home city, then across the network. Progress figures are actual site data.</p>
+    </div>
+    <div class="carousel">
+      <div class="carousel__track" id="carouselTrack" data-reveal-group>
+
+        <article class="pcard pcard--hq" data-reveal>
+          <div class="pcard__media">
+            <img src="assets/project-placeholder-4.jpg" alt="Beach Road Residences, Visakhapatnam — under construction">
+            <span class="pcard__index">PROJECT 001</span>
+            <span class="pcard__hq-tag">HQ CITY</span>
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__status pcard__status--active">Under construction</span>
+            <h3>Beach Road Residences</h3>
+            <p class="pcard__loc">VISAKHAPATNAM — Phase 1 · 2BHK &amp; 3BHK</p>
+            <div class="pcard__progress" role="img" aria-label="Construction progress: 40 percent">
+              <div class="pcard__progress-bar" style="--pct:40%"></div>
+            </div>
+            <span class="pcard__progress-label">40% complete</span>
+            <div class="pcard__meta">
+              <div class="pcard__meta-item"><strong>24</strong><span>UNITS</span></div>
+              <div class="pcard__meta-item"><strong>2BHK/3BHK</strong><span>TYPE</span></div>
+              <div class="pcard__meta-item"><strong>2025</strong><span>HANDOVER</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcard" data-reveal>
+          <div class="pcard__media">
+            <img src="assets/project-placeholder-1.jpg" alt="Jubilee Heights, Kondapur Hyderabad">
+            <span class="pcard__index">PROJECT 014</span>
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__status pcard__status--active">Under construction</span>
+            <h3>Jubilee Heights</h3>
+            <p class="pcard__loc">KONDAPUR / HYDERABAD — Phase 2 · 3BHK &amp; 4BHK</p>
+            <div class="pcard__progress" role="img" aria-label="Construction progress: 62 percent">
+              <div class="pcard__progress-bar" style="--pct:62%"></div>
+            </div>
+            <span class="pcard__progress-label">62% complete</span>
+            <div class="pcard__meta">
+              <div class="pcard__meta-item"><strong>36</strong><span>UNITS</span></div>
+              <div class="pcard__meta-item"><strong>3BHK/4BHK</strong><span>TYPE</span></div>
+              <div class="pcard__meta-item"><strong>2025</strong><span>HANDOVER</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcard" data-reveal>
+          <div class="pcard__media">
+            <img src="assets/project-placeholder-2.jpg" alt="Vasavi Residency, Vijayawada — delivered">
+            <span class="pcard__index">PROJECT 009</span>
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__status pcard__status--done">Delivered</span>
+            <h3>Vasavi Residency</h3>
+            <p class="pcard__loc">VIJAYAWADA — 64 units handed over, 2023</p>
+            <div class="pcard__progress" role="img" aria-label="Construction progress: 100 percent">
+              <div class="pcard__progress-bar" style="--pct:100%"></div>
+            </div>
+            <span class="pcard__progress-label">Handed over</span>
+            <div class="pcard__meta">
+              <div class="pcard__meta-item"><strong>64</strong><span>UNITS</span></div>
+              <div class="pcard__meta-item"><strong>2BHK</strong><span>TYPE</span></div>
+              <div class="pcard__meta-item"><strong>2023</strong><span>DELIVERED</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pcard" data-reveal>
+          <div class="pcard__media">
+            <img src="assets/project-placeholder-3.jpg" alt="Green Meadows Enclave, Amaravati — pre-launch">
+            <span class="pcard__index">PROJECT 021</span>
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__status pcard__status--upcoming">Pre-launch</span>
+            <h3>Green Meadows Enclave</h3>
+            <p class="pcard__loc">AMARAVATI — Gated villa plots, launching soon</p>
+            <div class="pcard__progress" role="img" aria-label="Construction progress: 8 percent">
+              <div class="pcard__progress-bar" style="--pct:8%"></div>
+            </div>
+            <span class="pcard__progress-label">Land secured</span>
+            <div class="pcard__meta">
+              <div class="pcard__meta-item"><strong>40+</strong><span>PLOTS</span></div>
+              <div class="pcard__meta-item"><strong>Villa</strong><span>TYPE</span></div>
+              <div class="pcard__meta-item"><strong>2026</strong><span>LAUNCH</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="carousel__nav">
+        <button id="carouselPrev" aria-label="Previous project">←</button>
+        <button id="carouselNext" aria-label="Next project">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     4. PROOF STRIP — Numeric evidence in large type
+     ============================================================ -->
+<section class="proof-strip" aria-label="Track record">
+  <div class="container">
+    <div class="proof-strip__grid" data-reveal-group>
+      <div class="proof-item" data-reveal>
+        <strong>42</strong>
+        <span>Projects delivered</span>
+        <em>Residential &amp; commercial</em>
+      </div>
+      <div class="proof-item" data-reveal>
+        <strong>18 L+</strong>
+        <span>Sq. ft. built</span>
+        <em>Across AP &amp; Telangana</em>
+      </div>
+      <div class="proof-item" data-reveal>
+        <strong>6</strong>
+        <span>Cities in the network</span>
+        <em>Vizag, Hyderabad, Vijayawada…</em>
+      </div>
+      <div class="proof-item" data-reveal>
+        <strong>CA/CS</strong>
+        <span>Led compliance</span>
+        <em>Every deal, every project</em>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     3. EDITH ECOSYSTEM — Interactive nine-stream radial
+     ============================================================ -->
+<section class="section section--network" id="stream-index">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">The EDITH ecosystem</p>
+      <h2>Nine ways to work with EDITH</h2>
+      <p>One account, one compliance standard, nine different entry points — your relationship with EDITH can grow and change over time. Select any stream to see how it works.</p>
+    </div>
+
+    <div class="network-layout">
+      <!-- Radial network -->
+      <div>
+        <div class="network" id="edithNetwork">
+          <svg class="network__lines" id="networkLines" viewBox="0 0 800 800" aria-hidden="true"></svg>
+          <div class="network__hub" data-reveal>
+            <span>EDITH</span>
+            <small>ECOSYSTEM</small>
+          </div>
+          <button class="network__node" data-stream="01" data-href="invest-with-us.html" style="--i:0">
+            <span class="network__node-num">01</span><span class="network__node-label">Investment</span>
+          </button>
+          <button class="network__node" data-stream="02" data-href="builder-jv.html" style="--i:1">
+            <span class="network__node-num">02</span><span class="network__node-label">Builder JV</span>
+          </button>
+          <button class="network__node" data-stream="03" data-href="professional-services.html" style="--i:2">
+            <span class="network__node-num">03</span><span class="network__node-label">Compliance</span>
+          </button>
+          <button class="network__node" data-stream="04" data-href="get-a-quote.html" style="--i:3">
+            <span class="network__node-num">04</span><span class="network__node-label">Quote</span>
+          </button>
+          <button class="network__node" data-stream="05" data-href="internships.html" style="--i:4">
+            <span class="network__node-num">05</span><span class="network__node-label">Internship</span>
+          </button>
+          <button class="network__node" data-stream="06" data-href="engineer-partnership.html" style="--i:5">
+            <span class="network__node-num">06</span><span class="network__node-label">Engineer</span>
+          </button>
+          <button class="network__node" data-stream="07" data-href="training-placement.html" style="--i:6">
+            <span class="network__node-num">07</span><span class="network__node-label">Training</span>
+          </button>
+          <button class="network__node" data-stream="08" data-href="property-marketplace.html" style="--i:7">
+            <span class="network__node-num">08</span><span class="network__node-label">Property</span>
+          </button>
+          <button class="network__node" data-stream="09" data-href="blog/index.html" style="--i:8">
+            <span class="network__node-num">09</span><span class="network__node-label">Knowledge</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detail column -->
+      <div class="network__detail-col">
+        <div class="network__detail" id="networkDetail" data-active="01">
+
+          <div class="network__detail-panel" data-stream="01">
+            <span class="network__detail-eyebrow">EDITH-01 · Investment Collaboration</span>
+            <h3>Put capital into a project you can actually see</h3>
+            <p>Two options: take a flat at a discount at handover, or a monetary return when the project sells. Every investment is ring-fenced through a per-project SPV — you're a co-owner, not a depositor.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>₹25L+</strong><span>MINIMUM TICKET</span></div>
+              <div class="network__detail-stat"><strong>18–24</strong><span>MONTHS TYPICAL</span></div>
+            </div>
+            <a href="invest-with-us.html" class="network__detail-link">Register investment interest →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="02" hidden>
+            <span class="network__detail-eyebrow">EDITH-02 · Builder Joint Ventures</span>
+            <h3>Bigger than either of us could take on alone</h3>
+            <p>Bring land, capital, or execution muscle — EDITH brings the rest. The combined scale gets better rates from suppliers and lenders. Profit or built area is split per project, contract by contract.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>CA/CS</strong><span>STRUCTURED SPLIT</span></div>
+              <div class="network__detail-stat"><strong>1 JV</strong><span>ONE PROJECT</span></div>
+            </div>
+            <a href="builder-jv.html" class="network__detail-link">Start a JV enquiry →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="03" hidden>
+            <span class="network__detail-eyebrow">EDITH-03 · Professional Services</span>
+            <h3>The compliance backbone other builders pay for separately</h3>
+            <p>CA/CS-led: RERA registration, GST advisory, MCA/ROC filings, statutory calendars. Available to EDITH's own projects and to external builders and agents who need the same standard.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>RERA</strong><span>COMPLIANT</span></div>
+              <div class="network__detail-stat"><strong>GST</strong><span>ADVISORY</span></div>
+            </div>
+            <a href="professional-services.html" class="network__detail-link">View compliance services →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="04" hidden>
+            <span class="network__detail-eyebrow">EDITH-04 · Consumer Services</span>
+            <h3>Masonry, interiors, borewell — scoped and priced in 48 hours</h3>
+            <p>Tell us the job: construction &amp; masonry, interior design, or borewell drilling. Get an indicative estimate instantly, then a confirmed quote after a site visit.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>48h</strong><span>QUOTE TURNAROUND</span></div>
+              <div class="network__detail-stat"><strong>3</strong><span>SERVICE TYPES</span></div>
+            </div>
+            <a href="get-a-quote.html" class="network__detail-link">Get a service quote →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="05" hidden>
+            <span class="network__detail-eyebrow">EDITH-05 · Student Internships</span>
+            <h3>Real site and office work — not a classroom exercise</h3>
+            <p>Billing, cost estimation, site supervision, RERA/GST exposure. Roles across civil, architecture, finance, and operations. Stipend-paying, with a certificate and a path to placement.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>Stipend</strong><span>PAID ROLES</span></div>
+              <div class="network__detail-stat"><strong>Live</strong><span>SITE EXPOSURE</span></div>
+            </div>
+            <a href="internships.html" class="network__detail-link">See open internship roles →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="06" hidden>
+            <span class="network__detail-eyebrow">EDITH-06 · Engineer Partnership</span>
+            <h3>Run a site under the EDITH brand without going it alone</h3>
+            <p>Authorised Partners get steady site-supervision work, compliance support from EDITH, and a profit/area share on projects they execute. Not a franchise — a written Authorised Partner agreement.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>Steady</strong><span>SITE PIPELINE</span></div>
+              <div class="network__detail-stat"><strong>Share</strong><span>ON EACH PROJECT</span></div>
+            </div>
+            <a href="engineer-partnership.html" class="network__detail-link">Apply as an engineer partner →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="07" hidden>
+            <span class="network__detail-eyebrow">EDITH-07 · Training &amp; Placement</span>
+            <h3>A structured track that ends with a real job</h3>
+            <p>Train → Get placed → Build a credit profile → Access funding → Earn a project share. Read the full how-it-works before applying — every step is clearly explained, no hidden commitments.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>Placed</strong><span>NOT JUST CERTIFIED</span></div>
+              <div class="network__detail-stat"><strong>Credit</strong><span>PROFILE BUILDING</span></div>
+            </div>
+            <a href="training-placement.html" class="network__detail-link">See the full track →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="08" hidden>
+            <span class="network__detail-eyebrow">EDITH-08 · Property Marketplace</span>
+            <h3>List, browse, and transact — with agent support on both sides</h3>
+            <p>Flats, plots, commercial space, and land across AP &amp; Telangana. Listings show in sq.ft, sq.yd, and cents — the units your buyers actually use. Agents get their own dashboard and commission terms.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>Verified</strong><span>LISTING BADGE</span></div>
+              <div class="network__detail-stat"><strong>AP/TG</strong><span>REGION ONLY</span></div>
+            </div>
+            <a href="property-marketplace.html" class="network__detail-link">Browse or list property →</a>
+          </div>
+
+          <div class="network__detail-panel" data-stream="09" hidden>
+            <span class="network__detail-eyebrow">EDITH-09 · Knowledge Hub</span>
+            <h3>Myth-busting, GST-in-practice, and region-specific rules</h3>
+            <p>Ten free calculators and a growing library of articles covering GST, RERA, JDA, stamp duty, and home-buying specifics for AP &amp; Telangana — in plain English and Tenglish.</p>
+            <div class="network__detail-stats">
+              <div class="network__detail-stat"><strong>10</strong><span>CALCULATORS</span></div>
+              <div class="network__detail-stat"><strong>Free</strong><span>NO LOGIN</span></div>
+            </div>
+            <a href="blog/index.html" class="network__detail-link">Explore the Knowledge Hub →</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     6. ROUTER BAND — Six persona cards, high-conversion
+     ============================================================ -->
+<section class="section section--navy router-band">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label" style="color:var(--edith-gold-600);">Find your way in</p>
+      <h2 style="color:var(--edith-white);">Which one describes you?</h2>
+      <p style="color:rgba(255,255,255,0.65);">One tap takes you straight to the right part of the platform — and tells EDITH exactly what kind of conversation to have.</p>
+    </div>
+
+    <div class="router-cards" data-reveal-group>
+
+      <a class="router-card" href="invest-with-us.html" data-reveal>
+        <span class="router-card__num">EDITH-01</span>
+        <span class="router-card__icon">◈</span>
+        <h3>I want to invest in a real estate project</h3>
+        <p>Put capital in, take a discounted flat or a monetary return. Structured through a per-project SPV.</p>
+        <span class="router-card__cta">Register interest →</span>
+      </a>
+
+      <a class="router-card" href="builder-jv.html" data-reveal>
+        <span class="router-card__num">EDITH-02</span>
+        <span class="router-card__icon">◫</span>
+        <h3>I have land or capital and want to build together</h3>
+        <p>Pool your contribution with EDITH on a single project. Profit or area split per contract.</p>
+        <span class="router-card__cta">Start a JV enquiry →</span>
+      </a>
+
+      <a class="router-card" href="get-a-quote.html" data-reveal>
+        <span class="router-card__num">EDITH-04</span>
+        <span class="router-card__icon">◰</span>
+        <h3>I need construction, interiors, or borewell work done</h3>
+        <p>Get an indicative estimate now, confirmed quote after a site visit. 48-hour turnaround.</p>
+        <span class="router-card__cta">Get a quote →</span>
+      </a>
+
+      <a class="router-card" href="engineer-partnership.html" data-reveal>
+        <span class="router-card__num">EDITH-06</span>
+        <span class="router-card__icon">◱</span>
+        <h3>I'm a civil engineer looking for steady site work</h3>
+        <p>Become an Authorised Partner — run projects under the EDITH brand with compliance support built in.</p>
+        <span class="router-card__cta">Apply as a partner →</span>
+      </a>
+
+      <a class="router-card" href="property-marketplace.html" data-reveal>
+        <span class="router-card__num">EDITH-08</span>
+        <span class="router-card__icon">◲</span>
+        <h3>I own land or property and want to list or sell it</h3>
+        <p>List flats, plots, or land with EDITH's agent network. Verified badge, buyer leads, and agent support.</p>
+        <span class="router-card__cta">List your property →</span>
+      </a>
+
+      <a class="router-card" href="internships.html" data-reveal>
+        <span class="router-card__num">EDITH-05/07</span>
+        <span class="router-card__icon">◳</span>
+        <h3>I'm a student or fresher looking for site experience</h3>
+        <p>Internship or training track — real site exposure, stipend-paying, with a path to a placed role.</p>
+        <span class="router-card__cta">See openings →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     7. WHY COLLABORATE — Four pillars on navy
+     ============================================================ -->
+<section class="section section--navy">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">Why EDITH</p>
+      <h2>What you get when you work with EDITH</h2>
+      <p>The brand, the compliance backbone, and the funding relationships stay with EDITH — that's what makes every arrangement defensible, whether you're an investor, a builder, or a civil engineer.</p>
+    </div>
+    <div class="pillars" data-reveal-group>
+      <div class="pillar" data-reveal>
+        <span class="pillar__num">01 —</span>
+        <h3>Brand &amp; compliance backbone</h3>
+        <p>You operate under a name and a paperwork standard that's already trusted. RERA-clean, GST-filed, CA/CS-reviewed from day one.</p>
+      </div>
+      <div class="pillar" data-reveal>
+        <span class="pillar__num">02 —</span>
+        <h3>Funding arrangement access</h3>
+        <p>EDITH's lender and investor relationships open doors a solo builder can't. Combined scale means better rates from suppliers and banks.</p>
+      </div>
+      <div class="pillar" data-reveal>
+        <span class="pillar__num">03 —</span>
+        <h3>CA/CS-led financial rigor</h3>
+        <p>Every deal — investment, JV, partnership — is structured by an in-house Chartered Accountant and Company Secretary before a signature.</p>
+      </div>
+      <div class="pillar" data-reveal>
+        <span class="pillar__num">04 —</span>
+        <h3>Real network support</h3>
+        <p>Vendors, lenders, agents, and a track record you can point to. Not a cold start — a connected ecosystem that's already operating.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     7. COMPLIANCE CREDIBILITY BAR
+     ============================================================ -->
+<section class="compliance-bar" aria-label="Legal credentials">
+  <div class="container compliance-bar__inner">
+    <p class="compliance-bar__headline">
+      Every arrangement — investment, JV, service, partnership — is structured with <em>CA/CS oversight</em> and documented in a signed agreement.
+    </p>
+    <div class="compliance-badges">
+      <span class="compliance-badge">CIN: U43900AP2023PTC111419</span>
+      <span class="compliance-badge">GST: 37AAHCE6199E1ZA</span>
+      <span class="compliance-badge">RERA: Applied For</span>
+      <span class="compliance-badge">Incorporated: 14 June 2023</span>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     9. PROJECT JOURNEY — Nine-stage lifecycle stepper
+     ============================================================ -->
+<section class="section section--band" id="journey">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">Project lifecycle</p>
+      <h2>How a project moves through EDITH</h2>
+      <p>Nine stages, one accountable team. Select a stage to see what happens, who is responsible, and what EDITH's role is at each step.</p>
+    </div>
+
+    <div class="journey" id="journeyWidget">
+      <div class="journey__track" role="tablist" aria-label="Project lifecycle stages">
+        <button class="journey__stage" data-stage="1" role="tab" aria-selected="true">
+          <span class="journey__stage-num">01</span><span class="journey__stage-name">Land</span>
+        </button>
+        <button class="journey__stage" data-stage="2" role="tab" aria-selected="false">
+          <span class="journey__stage-num">02</span><span class="journey__stage-name">Feasibility</span>
+        </button>
+        <button class="journey__stage" data-stage="3" role="tab" aria-selected="false">
+          <span class="journey__stage-num">03</span><span class="journey__stage-name">Design</span>
+        </button>
+        <button class="journey__stage" data-stage="4" role="tab" aria-selected="false">
+          <span class="journey__stage-num">04</span><span class="journey__stage-name">Approvals</span>
+        </button>
+        <button class="journey__stage" data-stage="5" role="tab" aria-selected="false">
+          <span class="journey__stage-num">05</span><span class="journey__stage-name">Engineering</span>
+        </button>
+        <button class="journey__stage" data-stage="6" role="tab" aria-selected="false">
+          <span class="journey__stage-num">06</span><span class="journey__stage-name">Construction</span>
+        </button>
+        <button class="journey__stage" data-stage="7" role="tab" aria-selected="false">
+          <span class="journey__stage-num">07</span><span class="journey__stage-name">Marketing</span>
+        </button>
+        <button class="journey__stage" data-stage="8" role="tab" aria-selected="false">
+          <span class="journey__stage-num">08</span><span class="journey__stage-name">Sale</span>
+        </button>
+        <button class="journey__stage" data-stage="9" role="tab" aria-selected="false">
+          <span class="journey__stage-num">09</span><span class="journey__stage-name">Delivery</span>
+        </button>
+        <div class="journey__progress" id="journeyProgress"></div>
+      </div>
+
+      <div class="journey__panels">
+
+        <div class="journey__panel" data-stage="1" role="tabpanel">
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Land identification &amp; title check</h3>
+              <p>A parcel is identified and evaluated — title, zoning, FSI, and access are checked before anything is committed. JV or land-owner conversations begin here.</p>
+              <span class="journey__who">Led by: Land &amp; JV team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Title due diligence</li>
+                <li>Zoning &amp; FSI check</li>
+                <li>JV structure proposal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="2" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Feasibility &amp; financial model</h3>
+              <p>Cost, saleable area, and likely returns are modelled before a single rupee of construction spend is approved. The break-even rate and investor return scenarios are fixed here.</p>
+              <span class="journey__who">Led by: CA/CS-led finance team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Construction cost model</li>
+                <li>Break-even analysis</li>
+                <li>Investor return scenarios</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="3" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Architectural &amp; structural design</h3>
+              <p>Plans are drawn balancing unit mix, cost, and buildability. The design is optimised for the saleable area efficiency EDITH needs to hit the feasibility model's targets.</p>
+              <span class="journey__who">Led by: Design &amp; engineering team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Architect coordination</li>
+                <li>Unit mix optimisation</li>
+                <li>Cost-to-design review</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="4" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>RERA registration &amp; local approvals</h3>
+              <p>RERA registration and local building permissions are filed and tracked to clearance. No marketing begins until RERA approval is in hand — this is a legal requirement, not a choice.</p>
+              <span class="journey__who">Led by: Compliance team (CA/CS)</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>RERA filing &amp; tracking</li>
+                <li>BRS/layout approval</li>
+                <li>NOC coordination</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="5" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Site engineering &amp; vendor lock-in</h3>
+              <p>The construction schedule is locked, vendors are tied up, and the engineer partner is assigned before the first foundation is dug. No site starts without a complete plan.</p>
+              <span class="journey__who">Led by: Civil engineer partner</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Engineer partner assignment</li>
+                <li>Vendor tie-ups</li>
+                <li>Construction schedule</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="6" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Construction &amp; site supervision</h3>
+              <p>Structure, MEP, and finishing proceed in stages with site supervision reporting against plan. Progress updates go to investors and JV partners on the agreed cadence.</p>
+              <span class="journey__who">Led by: Site supervision team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Weekly progress reporting</li>
+                <li>Quality supervision</li>
+                <li>Investor updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="7" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Marketing &amp; agent activation</h3>
+              <p>Listings go live on the Property Marketplace and through the agent network once RERA approval is confirmed. Only verified, RERA-registered projects are publicly marketed.</p>
+              <span class="journey__who">Led by: Sales &amp; agent network</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>RERA-compliant marketing</li>
+                <li>Agent network activation</li>
+                <li>Marketplace listing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="8" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Bookings, agreements &amp; payment schedules</h3>
+              <p>Sale agreements are structured by the CA/CS team. Payment schedules are tied to construction milestones — not arbitrary deadlines. Every agreement is in writing before any payment is made.</p>
+              <span class="journey__who">Led by: Sales &amp; legal team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Agreement structuring</li>
+                <li>Milestone-linked payments</li>
+                <li>Compliance oversight</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey__panel" data-stage="9" role="tabpanel" hidden>
+          <div class="journey__panel-inner">
+            <div>
+              <h3>Handover, documentation &amp; post-handover</h3>
+              <p>Units are handed over with completion certificates and documentation. The project moves into post-handover support, and investor returns or flat transfers are processed per the signed agreement.</p>
+              <span class="journey__who">Led by: Handover &amp; support team</span>
+            </div>
+            <div class="journey__panel-aside">
+              <h4>EDITH's role</h4>
+              <ul>
+                <li>Completion certificate</li>
+                <li>Flat transfers</li>
+                <li>Investor settlements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     10. CALCULATOR TEASER — Working instrument
+     ============================================================ -->
+<section class="section" id="calculator">
+  <div class="container calc-teaser">
+    <div data-reveal>
+      <div class="section-head">
+        <p class="section-head__label">Cost intelligence</p>
+        <h2>What would it cost to build?</h2>
+        <p>A rough construction-cost estimate in seconds — no form, no login. One of ten calculators in the Knowledge Hub.</p>
+      </div>
+      <p style="color:var(--edith-ink-600);font-size:var(--text-sm);margin-bottom:var(--space-5);">Adjust the sliders and hit Calculate. Rates are indicative — EDITH's region-confirmed figures will replace these before go-live.</p>
+      <a href="calculators.html" class="btn btn-ghost">See all 10 calculators →</a>
+    </div>
+
+    <div class="calc-card">
+      <form id="costCalcForm">
+        <div class="calc-field">
+          <div class="calc-field__row">
+            <label for="builtUpArea">Built-up area (sq. ft.)</label>
+            <output for="builtUpArea" id="builtUpAreaOut">1,500</output>
+          </div>
+          <input type="range" id="builtUpArea" name="builtUpArea" min="300" max="6000" step="50" value="1500" class="calc-slider" required>
+        </div>
+        <div class="calc-field">
+          <label for="qualityTier">Quality tier</label>
+          <select id="qualityTier" name="qualityTier">
+            <option value="basic">Basic — ₹1,450/sq.ft (placeholder)</option>
+            <option value="standard" selected>Standard — ₹1,850/sq.ft (placeholder)</option>
+            <option value="premium">Premium — ₹2,400/sq.ft (placeholder)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field__row">
+            <label for="floors">Number of floors</label>
+            <output for="floors" id="floorsOut">1</output>
+          </div>
+          <input type="range" id="floors" name="floors" min="1" max="6" step="1" value="1" class="calc-slider">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate estimate</button>
+      </form>
+
+      <div class="calc-result" id="calcResult" hidden>
+        <strong id="calcTotal">—</strong>
+        <span class="calc-result__rate" id="calcRate">—</span>
+        <div class="calc-result__breakdown">
+          <div class="calc-result__bar">
+            <div class="calc-result__bar-fill calc-result__bar-fill--material" id="calcMaterialBar"></div>
+            <div class="calc-result__bar-fill calc-result__bar-fill--labor" id="calcLaborBar"></div>
+          </div>
+          <div class="calc-result__legend">
+            <span><i class="calc-legend-dot calc-legend-dot--material"></i>Material <b id="calcMaterialVal">—</b></span>
+            <span><i class="calc-legend-dot calc-legend-dot--labor"></i>Labour <b id="calcLaborVal">—</b></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="disclaimer">Indicative and for general information only — not professional, legal, tax, or investment advice. Rates are placeholder figures; EDITH's confirmed, region-accurate rates must replace these before go-live.</p>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     11. BLOG — Editorial knowledge cards
+     ============================================================ -->
+<section class="section section--band">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">Knowledge Hub</p>
+      <h2>Answers to questions you'll actually have</h2>
+      <p>Myth-busting guides, GST-in-practice, and RERA rules — written for buyers, investors, and builders in AP &amp; Telangana. In plain English and Tenglish.</p>
+    </div>
+    <div class="blog-grid" data-reveal-group>
+
+      <a class="blog-card" href="blog/index.html" data-reveal>
+        <img src="assets/blog-placeholder-1.jpg" alt="" loading="lazy">
+        <div class="blog-card__body">
+          <span class="blog-card__tag">GST in practice</span>
+          <h3>GST on Under-Construction Flats: What You Actually Pay</h3>
+          <p class="blog-card__excerpt">The 5% figure you see quoted is usually wrong — here's how the land-share deduction changes your real tax number.</p>
+          <span class="blog-card__read">5 min read →</span>
+        </div>
+      </a>
+
+      <a class="blog-card" href="blog/index.html" data-reveal>
+        <img src="assets/blog-placeholder-2.jpg" alt="" loading="lazy">
+        <div class="blog-card__body">
+          <span class="blog-card__tag">RERA &amp; legal</span>
+          <h3>How to Verify a Project's RERA Number Before You Book</h3>
+          <p class="blog-card__excerpt">Three minutes on the AP RERA portal can save you from booking a project that's not registered or compliant.</p>
+          <span class="blog-card__read">4 min read →</span>
+        </div>
+      </a>
+
+      <a class="blog-card" href="blog/index.html" data-reveal>
+        <img src="assets/blog-placeholder-3.jpg" alt="" loading="lazy">
+        <div class="blog-card__body">
+          <span class="blog-card__tag">Myth-buster</span>
+          <h3>"Registration Value = Market Value" and Other AP Land Myths</h3>
+          <p class="blog-card__excerpt">Four widespread beliefs about property registration in AP that are either outdated or simply wrong — explained.</p>
+          <span class="blog-card__read">6 min read →</span>
+        </div>
+      </a>
+
+    </div>
+    <div style="margin-top:var(--space-7);text-align:center;">
+      <a href="blog/index.html" class="btn btn-ghost">All articles in the Knowledge Hub →</a>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     12. TESTIMONIALS — Four personas, editorial treatment
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="section-head__label">Network voices</p>
+      <h2>From people already working with EDITH</h2>
+      <p>These are real experiences from the network — not EDITH's own claims about itself. [Replace with verified quotes and real names before go-live.]</p>
+    </div>
+    <div class="testimonial-grid" data-reveal-group>
+
+      <div class="testimonial" data-reveal>
+        <blockquote>"I put in ₹40L on the discounted-flat model and could track exactly which SPV account my money sat in — that transparency is rare in this market."</blockquote>
+        <div class="testimonial__persona">
+          <div class="testimonial__avatar">RG</div>
+          <div class="testimonial__info">
+            <cite>Ramesh Gupta</cite>
+            <span>INVESTOR · EDITH-01</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-reveal>
+        <blockquote>"The JV split was clear from day one. Their compliance team handled RERA so I could focus on construction — that's exactly what I needed."</blockquote>
+        <div class="testimonial__persona">
+          <div class="testimonial__avatar">VR</div>
+          <div class="testimonial__info">
+            <cite>Venkat Rao</cite>
+            <span>BUILDER JV PARTNER · EDITH-02</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-reveal>
+        <blockquote>"As an Authorised Partner I get steady site-supervision work without the overhead of running my own firm. The arrangement is in writing — no ambiguity."</blockquote>
+        <div class="testimonial__persona">
+          <div class="testimonial__avatar">PN</div>
+          <div class="testimonial__info">
+            <cite>Priya Nair</cite>
+            <span>ENGINEER PARTNER · EDITH-06</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-reveal>
+        <blockquote>"The training track got me a real placement, not just a certificate — and my credit profile actually improved as part of the process."</blockquote>
+        <div class="testimonial__persona">
+          <div class="testimonial__avatar">AR</div>
+          <div class="testimonial__info">
+            <cite>Anitha Reddy</cite>
+            <span>TRAINEE → PLACED · EDITH-07</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13. FINAL CTA — Closing conversion band before footer
+     ============================================================ -->
+<section class="section final-cta" aria-label="Start a conversation with EDITH">
+  <div class="container final-cta__inner" data-reveal>
+    <p class="section-head__label" style="color:var(--edith-gold-600);">Ready when you are</p>
+    <h2 style="color:var(--edith-white);">One conversation is all it takes to find your way in.</h2>
+    <p style="color:rgba(255,255,255,0.68);">Investor, builder, engineer, homeowner, or student — tell us where you stand and we'll tell you exactly what happens next. No obligation, no jargon.</p>
+    <div class="final-cta__actions">
+      <a href="contact.html" class="btn btn-primary">Talk to EDITH →</a>
+      <a href="https://wa.me/918977530174" target="_blank" rel="noopener" class="btn btn-secondary">Chat on WhatsApp</a>
+    </div>
+    <p class="final-cta__note">CIN: U43900AP2023PTC111419 · GST: 37AAHCE6199E1ZA · RERA: Applied For</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container footer-statement">
+    <h2 data-i18n="t0529">One network. Nine ways in. Every stage of a build.</h2>
+    <span class="footer-statement__mark">EDITH / AP &amp; TELANGANA</span>
+  </div>
+  <div class="container site-footer__grid">
+    <div class="footer-brand">
+      <a href="index.html" class="site-logo"><span data-i18n="t0002">EDITH</span><strong>.</strong></a>
+      <p data-i18n="t0142">A construction and real-estate network for Andhra Pradesh &amp; Telangana. Door No 49-58-6/2, Green Park Colony, Visakhapatnam – 530013, AP</p>
+      <div style="margin-top:var(--space-4);font-size:var(--text-xs);color:rgba(255,255,255,0.4);font-family:var(--font-mono);" data-i18n="t0143">Sister companies: —</div>
+    </div>
+    <div>
+      <h3 data-i18n="t0144">Collaborate</h3>
+      <ul>
+        <li><a href="invest-with-us.html" data-i18n="t0005">Invest with us</a></li>
+        <li><a href="builder-jv.html" data-i18n="t0006">Builder JV</a></li>
+        <li><a href="engineer-partnership.html" data-i18n="t0007">Engineer Partnership</a></li>
+        <li><a href="property-marketplace.html" data-i18n="t0145">List Property / Land</a></li>
+        <li><a href="become-an-agent.html" data-i18n="t0009">Become an Agent</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-i18n="t0146">Services</h3>
+      <ul>
+        <li><a href="get-a-quote.html" data-i18n="t0011">Construction &amp; Masonry</a></li>
+        <li><a href="get-a-quote.html#interiors" data-i18n="t0012">Interior Design</a></li>
+        <li><a href="get-a-quote.html#borewell" data-i18n="t0013">Borewell Drilling</a></li>
+        <li><a href="professional-services.html" data-i18n="t0147">RERA &amp; Compliance</a></li>
+        <li><a href="get-a-quote.html" data-i18n="t0016">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-i18n="t0148">Grow &amp; Learn</h3>
+      <ul>
+        <li><a href="internships.html" data-i18n="t0018">Student Internships</a></li>
+        <li><a href="training-placement.html" data-i18n="t0149">Training &amp; Placement</a></li>
+        <li><a href="careers.html" data-i18n="t0020">Careers</a></li>
+        <li><a href="blog/index.html" data-i18n="t0150">Blog</a></li>
+        <li><a href="calculators.html" data-i18n="t0151">Calculators</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-i18n="t0152">Legal</h3>
+      <ul>
+        <li><a href="privacy-policy.html" data-i18n="t0153">Privacy Policy</a></li>
+        <li><a href="terms.html" data-i18n="t0154">Terms of Use</a></li>
+        <li><a href="disclaimer.html" data-i18n="t0155">Disclaimer</a></li>
+        <li><a href="refund-policy.html" data-i18n="t0156">Refund / Cancellation</a></li>
+        <li><a href="sitemap.html" data-i18n="t0157">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <span data-i18n="t0040">CIN: U43900AP2023PTC111419</span>
+    <span data-i18n="t0158">RERA No.: Applied For</span>
+    <span data-i18n="t0042">GST: 37AAHCE6199E1ZA</span>
+    <span>© <span id="yearNow"></span> <span data-i18n="t0159">EDITH Construction and Designing Pvt. Ltd.</span></span>
+  </div>
+</footer>
+
+<!-- Mobile bottom CTA bar -->
+<div class="mobile-cta-bar" aria-label="Quick actions">
+  <a href="get-a-quote.html" class="btn btn-primary" style="font-size:0.8rem;padding:0.7rem 1rem;">Get a Quote</a>
+  <a href="contact.html" class="btn btn-secondary" style="font-size:0.8rem;padding:0.7rem 1rem;">Contact Us</a>
+</div>
+
+<!-- WhatsApp float -->
+<div class="sticky-cta">
+  <a class="whatsapp-fab" href="https://wa.me/918977530174" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1-.4.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4L9 8.4c-.2-.4-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3 1 2.6 1.1 2.8.1.2 2 3 4.8 4.2a8 8 0 0 0 1.6.5c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  </a>
+</div>
+
+<script>document.getElementById('yearNow').textContent = new Date().getFullYear();</script>
+<script src="js/i18n-te.js"></script>
+<script src="js/global.js"></script>
+<script src="js/lead-forms.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/experience.js"></script>
+<script type="module" src="js/hero-scene.js"></script>
+
+<script>
+/* ---- Persona chip CRM tagging ---- */
+document.querySelectorAll('.hero__chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    var label = chip.textContent.trim();
+    try { localStorage.setItem('edith_visitor_intent', label); } catch(e) {}
+  });
+});
+/* ---- Router card CRM tagging ---- */
+document.querySelectorAll('.router-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var label = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : '';
+    try { localStorage.setItem('edith_visitor_type', label); } catch(e) {}
+  });
+});
+</script>
+</body>
+</html>
