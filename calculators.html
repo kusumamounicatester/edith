@@ -3,218 +3,2254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculators & Tools | EDITH</title>
-<meta name="description" content="Ten free calculators — construction cost, land-unit conversion, home-loan EMI, stamp duty, GST, JDA share, ROI, rental yield, plot vs flat, and feasibility.">
+<title>Calculators &amp; Tools | EDITH — Real-Estate Intelligence</title>
+<meta name="description" content="Eleven free real-estate calculators for Andhra Pradesh — construction cost, land-unit conversion, home-loan EMI, stamp duty, GST, JDA share, JV split, ROI, rental yield, plot vs flat, and project feasibility.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Calculators & Tools","description":"Indian real-estate and financial calculators for Andhra Pradesh and Telangana","provider":{"@type":"Organization","name":"EDITH"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/pages.css">
+
+<style>
+/* ============================================================
+   EDITH DESIGN TOKENS (mirrors tokens.css + global.css)
+   ============================================================ */
+:root {
+  /* Colours */
+  --edith-navy-900: #0d1b2a;
+  --edith-navy-800: #162032;
+  --edith-navy-700: #1e2f45;
+  --edith-gold-600: #b08d57;
+  --edith-gold-500: #c9a96e;
+  --edith-gold-100: #f5eedf;
+  --edith-green-600: #1f6b4e;
+  --edith-green-100: #e8f5f0;
+  --edith-white: #ffffff;
+  --edith-paper-50: #fafaf8;
+  --edith-paper-100: #f4f3f0;
+  --edith-ink-900: #0d1b2a;
+  --edith-ink-700: #2b3d51;
+  --edith-ink-600: #4a5c6a;
+  --edith-ink-400: #7a8f9e;
+  --edith-line-200: #dde3e8;
+  --edith-line-100: #eef1f3;
+  --edith-error: #b91c1c;
+  --edith-warning: #92400e;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Radius */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 4px rgba(13,27,42,.06), 0 4px 16px rgba(13,27,42,.06);
+  --shadow-modal: 0 8px 48px rgba(13,27,42,.22), 0 2px 8px rgba(13,27,42,.12);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--edith-ink-900); background: var(--edith-paper-50); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font: inherit; border: none; background: none; }
+input, select, textarea { font: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
+.visually-hidden { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 1200px; margin-inline: auto; padding-inline: var(--space-5); }
+.section { padding-block: var(--space-8); }
+.section--tight { padding-block: var(--space-6); }
+
+/* ============================================================
+   HEADER (preserved from original)
+   ============================================================ */
+.skip-link { position:absolute;top:-100%;left:0;background:var(--edith-gold-600);color:var(--edith-navy-900);padding:.5rem 1rem;z-index:9999;font-weight:600; }
+.skip-link:focus { top:0; }
+.site-header { position:sticky;top:0;z-index:100;background:var(--edith-navy-900);border-bottom:1px solid rgba(255,255,255,.08); }
+.site-header__bar { display:flex;align-items:center;gap:var(--space-5);height:64px; }
+.site-logo { font-family:var(--font-display);font-weight:700;font-size:var(--text-md);color:var(--edith-white);letter-spacing:-.01em; }
+.site-logo strong { color:var(--edith-gold-600); }
+.main-nav { margin-left:auto; }
+.main-nav ul { display:flex;gap:var(--space-1); }
+.main-nav li { position:relative; }
+.main-nav > ul > li > a,
+.main-nav > ul > li > button { color:rgba(255,255,255,.82);font-size:var(--text-sm);padding:.45rem .6rem;border-radius:var(--radius-sm);transition:color .15s; }
+.main-nav > ul > li > a:hover,
+.main-nav > ul > li > button:hover { color:var(--edith-white); }
+.main-nav .dropdown { display:none;position:absolute;top:100%;left:0;background:var(--edith-navy-800);border:1px solid rgba(255,255,255,.1);min-width:200px;padding:var(--space-2) 0;z-index:200; }
+.main-nav li:hover .dropdown,
+.main-nav li:focus-within .dropdown { display:block; }
+.main-nav .dropdown li a { display:block;padding:.45rem var(--space-4);font-size:var(--text-sm);color:rgba(255,255,255,.8);transition:color .15s; }
+.main-nav .dropdown li a:hover { color:var(--edith-gold-500); }
+.header-actions { display:flex;align-items:center;gap:var(--space-3);margin-left:var(--space-4); }
+.header-search-btn,.header-lang-toggle { color:rgba(255,255,255,.7);font-size:var(--text-sm);padding:.35rem .6rem;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-sm);transition:color .15s,border-color .15s; }
+.header-search-btn:hover,.header-lang-toggle:hover { color:var(--edith-white);border-color:rgba(255,255,255,.35); }
+.nav-toggle { display:none;color:var(--edith-white);font-size:1.25rem;padding:.35rem .5rem; }
+@media(max-width:900px){ .main-nav{display:none}.nav-toggle{display:block} }
+
+/* ============================================================
+   PAGE HERO
+   ============================================================ */
+.page-hero { background:var(--edith-navy-900);color:var(--edith-white);padding-block:var(--space-8) var(--space-7); }
+.page-hero__eyebrow { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-gold-500);margin-bottom:var(--space-3);letter-spacing:.05em; }
+.page-hero h1 { font-size:clamp(1.75rem,4vw,var(--text-3xl));color:var(--edith-white);max-width:20ch; }
+.page-hero p { color:rgba(255,255,255,.72);max-width:56ch;margin-top:var(--space-3);font-size:var(--text-md); }
+.page-hero__meta { display:flex;gap:var(--space-6);margin-top:var(--space-6);flex-wrap:wrap; }
+.page-hero__stat { }
+.page-hero__stat strong { display:block;font-family:var(--font-display);font-size:var(--text-xl);color:var(--edith-gold-500); }
+.page-hero__stat span { font-size:var(--text-xs);font-family:var(--font-mono);color:rgba(255,255,255,.55);letter-spacing:.04em; }
+
+/* ============================================================
+   CALCULATOR GRID
+   ============================================================ */
+.calc-grid-section { background:var(--edith-paper-50); }
+.calc-grid-label { font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.08em;color:var(--edith-ink-400);margin-bottom:var(--space-5);padding-bottom:var(--space-3);border-bottom:1px solid var(--edith-line-200); }
+.calc-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--edith-line-200);border:1px solid var(--edith-line-200); }
+@media(max-width:1024px){ .calc-grid{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:700px){ .calc-grid{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:440px){ .calc-grid{grid-template-columns:1fr;} }
+
+.calc-card {
+  background:var(--edith-white);
+  padding:var(--space-5);
+  cursor:pointer;
+  display:flex;flex-direction:column;gap:var(--space-3);
+  transition:background .15s;
+  border:none;text-align:left;
+  position:relative;
+}
+.calc-card:hover { background:var(--edith-paper-100); }
+.calc-card:focus-visible { outline:2px solid var(--edith-gold-600);outline-offset:-2px; }
+.calc-card__icon {
+  width:40px;height:40px;
+  background:var(--edith-navy-900);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.calc-card__icon svg { width:20px;height:20px;stroke:var(--edith-gold-500);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round; }
+.calc-card__cat { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-ink-400);letter-spacing:.04em; }
+.calc-card__name { font-family:var(--font-display);font-size:var(--text-base);font-weight:600;color:var(--edith-navy-900);line-height:1.3; }
+.calc-card__desc { font-size:var(--text-sm);color:var(--edith-ink-600);line-height:1.5;flex:1; }
+.calc-card__cta { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-gold-600);letter-spacing:.04em;margin-top:var(--space-2); }
+.calc-card--featured { grid-column:span 2; }
+@media(max-width:700px){ .calc-card--featured{grid-column:span 1;} }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn { display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:.65rem 1.25rem;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;border-radius:var(--radius-sm);transition:background .15s,color .15s,border-color .15s;cursor:pointer;border:1.5px solid transparent; }
+.btn-primary { background:var(--edith-navy-900);color:var(--edith-white);border-color:var(--edith-navy-900); }
+.btn-primary:hover { background:var(--edith-navy-700); }
+.btn-gold { background:var(--edith-gold-600);color:var(--edith-navy-900);border-color:var(--edith-gold-600); }
+.btn-gold:hover { background:var(--edith-gold-500); }
+.btn-outline { background:transparent;color:var(--edith-ink-700);border-color:var(--edith-line-200); }
+.btn-outline:hover { border-color:var(--edith-ink-400); }
+.btn-ghost { background:transparent;color:var(--edith-ink-600);padding:.5rem .75rem; }
+.btn-ghost:hover { color:var(--edith-ink-900); }
+.btn-block { width:100%; }
+.btn-sm { padding:.45rem .85rem;font-size:var(--text-xs); }
+
+/* ============================================================
+   MODAL SYSTEM
+   ============================================================ */
+.modal-backdrop {
+  position:fixed;inset:0;
+  background:rgba(13,27,42,.72);
+  z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  padding:var(--space-4);
+  opacity:0;pointer-events:none;
+  transition:opacity .2s;
+}
+.modal-backdrop.is-open { opacity:1;pointer-events:auto; }
+
+.modal {
+  background:var(--edith-white);
+  width:100%;max-width:960px;max-height:92vh;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow-modal);
+  transform:translateY(8px);
+  transition:transform .2s;
+  overflow:hidden;
+}
+.modal-backdrop.is-open .modal { transform:translateY(0); }
+
+.modal__header {
+  background:var(--edith-navy-900);
+  background-image:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 60%);
+  border-bottom:1px solid var(--edith-gold-600);
+  padding:var(--space-5) var(--space-6);
+  display:flex;align-items:flex-start;gap:var(--space-4);
+  flex-shrink:0;
+}
+.modal__brand {
+  flex-shrink:0;
+  display:inline-flex;align-items:center;
+  font-family:var(--font-display);font-weight:700;font-size:var(--text-sm);
+  color:rgba(255,255,255,.92);letter-spacing:-.01em;
+  border:1px solid rgba(255,255,255,.22);
+  padding:.4rem .6rem;
+  margin-top:.05rem;
+}
+.modal__brand strong { color:var(--edith-gold-500); }
+.modal__header-text { flex:1;min-width:0; }
+.modal__eyebrow-row { display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-2); }
+.modal__cat { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-gold-500);letter-spacing:.05em; }
+.modal__free-tag {
+  font-family:var(--font-mono);font-size:.65rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--edith-navy-900);background:var(--edith-gold-500);
+  padding:.15rem .45rem;
+}
+.modal__title { font-family:var(--font-display);font-size:var(--text-lg);color:var(--edith-white);font-weight:600; }
+.modal__subtitle { font-size:var(--text-sm);color:rgba(255,255,255,.6);margin-top:var(--space-1); }
+.modal__close {
+  color:rgba(255,255,255,.6);font-size:1.25rem;line-height:1;
+  padding:.35rem;border-radius:var(--radius-sm);
+  flex-shrink:0;margin-top:.1rem;
+  transition:color .15s;
+}
+.modal__close:hover { color:var(--edith-white); }
+
+.modal__body { flex:1;overflow-y:auto;padding:var(--space-6); }
+.modal__body::-webkit-scrollbar { width:5px; }
+.modal__body::-webkit-scrollbar-thumb { background:var(--edith-line-200);border-radius:3px; }
+
+.modal__footer {
+  border-top:1px solid var(--edith-line-100);
+  padding:var(--space-4) var(--space-6);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);
+  flex-shrink:0;
+  background:var(--edith-paper-50);
+  box-shadow:0 -8px 24px -20px rgba(13,27,42,.4);
+}
+.modal__footer-left { flex:1;min-width:0; }
+.modal__footer-brand { font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--edith-gold-600);margin-bottom:.3rem; }
+.modal__disclaimer { font-size:var(--text-xs);color:var(--edith-ink-400);line-height:1.5; }
+.modal__actions { display:flex;gap:var(--space-3);flex-shrink:0;align-items:center; }
+.modal__calc-btn { padding-inline:1.2rem;box-shadow:0 2px 10px -2px rgba(176,141,87,.55); }
+
+@media(max-width:640px){
+  .modal__footer { flex-direction:column;align-items:stretch;gap:var(--space-3); }
+  .modal__footer-left { order:2; }
+  .modal__actions { order:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2); }
+  .modal__calc-btn { grid-column:1 / -1;order:-1;padding-block:.75rem; }
+  .modal__brand { display:none; }
+}
+
+/* Two-column calc layout */
+.calc-workspace { display:grid;grid-template-columns:1fr 1.1fr;gap:var(--space-6);align-items:start; }
+@media(max-width:700px){ .calc-workspace{grid-template-columns:1fr;} }
+.calc-inputs { display:flex;flex-direction:column;gap:var(--space-4); }
+.calc-outputs { display:flex;flex-direction:column;gap:var(--space-4); }
+
+/* Fields */
+.field { display:flex;flex-direction:column;gap:var(--space-2); }
+.field label { font-size:var(--text-sm);font-weight:600;color:var(--edith-ink-700); }
+.field input,.field select {
+  width:100%;padding:.6rem .85rem;
+  border:1.5px solid var(--edith-line-200);
+  border-radius:var(--radius-sm);
+  background:var(--edith-white);
+  color:var(--edith-ink-900);
+  transition:border-color .15s;
+  font-size:var(--text-base);
+}
+.field input:focus,.field select:focus { outline:none;border-color:var(--edith-navy-900); }
+.field input.is-error,.field select.is-error { border-color:var(--edith-error); }
+.field__hint { font-size:var(--text-xs);color:var(--edith-ink-400); }
+.field__hint--live { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-ink-600); }
+.field__error { font-size:var(--text-xs);color:var(--edith-error);display:none; }
+.field.has-error .field__error { display:block; }
+.field.has-error input,.field.has-error select { border-color:var(--edith-error); }
+
+/* Input with prefix */
+.input-wrap { position:relative; }
+.input-wrap .prefix { position:absolute;left:.85rem;top:50%;transform:translateY(-50%);color:var(--edith-ink-400);font-size:var(--text-sm);pointer-events:none; }
+.input-wrap input { padding-left:2rem; }
+.input-wrap .suffix { position:absolute;right:.85rem;top:50%;transform:translateY(-50%);color:var(--edith-ink-400);font-size:var(--text-sm);pointer-events:none;font-family:var(--font-mono); }
+.input-wrap input.has-suffix { padding-right:3.5rem; }
+
+/* Result cards */
+.result-primary {
+  background:var(--edith-navy-900);
+  padding:var(--space-5);
+  color:var(--edith-white);
+}
+.result-primary__label { font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,.5);letter-spacing:.05em;margin-bottom:var(--space-2); }
+.result-primary__value { font-family:var(--font-display);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;color:var(--edith-gold-500);line-height:1; }
+.result-primary__sub { font-size:var(--text-sm);color:rgba(255,255,255,.55);margin-top:var(--space-2); }
+
+.result-grid { display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--edith-line-200);border:1px solid var(--edith-line-200); }
+.result-cell { background:var(--edith-white);padding:var(--space-4); }
+.result-cell__label { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-ink-400);margin-bottom:var(--space-1); }
+.result-cell__value { font-family:var(--font-display);font-size:var(--text-md);font-weight:600;color:var(--edith-ink-900); }
+
+/* Bar chart */
+.bar-chart { display:flex;flex-direction:column;gap:var(--space-3); }
+.bar-row { display:flex;flex-direction:column;gap:var(--space-1); }
+.bar-row__header { display:flex;justify-content:space-between;font-size:var(--text-xs); }
+.bar-row__label { color:var(--edith-ink-600); }
+.bar-row__val { font-family:var(--font-mono);font-weight:500;color:var(--edith-ink-900); }
+.bar-track { height:8px;background:var(--edith-line-100);border-radius:2px;overflow:hidden; }
+.bar-fill { height:100%;border-radius:2px;transition:width .4s cubic-bezier(.4,0,.2,1);width:0; }
+.bar-fill--navy { background:var(--edith-navy-900); }
+.bar-fill--gold { background:var(--edith-gold-600); }
+.bar-fill--green { background:var(--edith-green-600); }
+.bar-fill--slate { background:var(--edith-ink-400); }
+
+/* SVG donut */
+.donut-wrap { display:flex;align-items:center;gap:var(--space-5); }
+.donut-svg { flex-shrink:0;overflow:visible; }
+.donut-legend { display:flex;flex-direction:column;gap:var(--space-3); }
+.donut-legend__item { display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm); }
+.donut-legend__swatch { width:12px;height:12px;border-radius:2px;flex-shrink:0; }
+.donut-legend__label { color:var(--edith-ink-600); }
+.donut-legend__val { font-family:var(--font-mono);font-weight:500;color:var(--edith-ink-900);margin-left:auto; }
+
+/* Methodology accordion */
+.methodology { margin-top:var(--space-5);border-top:1px solid var(--edith-line-100);padding-top:var(--space-4); }
+.methodology summary { font-size:var(--text-sm);font-weight:600;color:var(--edith-ink-600);cursor:pointer;list-style:none;display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) 0; }
+.methodology summary::before { content:"▸";font-size:.7rem;transition:transform .2s; }
+details[open] .methodology summary::before { transform:rotate(90deg); }
+.methodology p { font-size:var(--text-sm);color:var(--edith-ink-600);line-height:1.65;margin-top:var(--space-3); }
+.methodology code { font-family:var(--font-mono);font-size:.85em;background:var(--edith-line-100);padding:.1em .3em; }
+
+/* Empty/placeholder state */
+.calc-empty { display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-8) var(--space-5);text-align:center;color:var(--edith-ink-400);gap:var(--space-4); }
+.calc-empty svg { opacity:.35; }
+.calc-empty p { font-size:var(--text-sm);max-width:30ch; }
+
+/* Assumption tag */
+.assumption-tag { font-family:var(--font-mono);font-size:var(--text-xs);border:1px solid var(--edith-line-200);padding:.15rem .5rem;color:var(--edith-ink-600);display:inline-block;margin-right:var(--space-1);margin-bottom:var(--space-1); }
+
+/* Comparison columns */
+.compare-cols { display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--edith-line-200); }
+.compare-col { background:var(--edith-white);padding:var(--space-4); }
+.compare-col__head { font-family:var(--font-display);font-size:var(--text-sm);font-weight:600;padding-bottom:var(--space-3);margin-bottom:var(--space-3);border-bottom:1px solid var(--edith-line-100);color:var(--edith-ink-900); }
+.compare-col__row { display:flex;justify-content:space-between;font-size:var(--text-sm);padding:var(--space-2) 0;border-bottom:1px solid var(--edith-line-100); }
+.compare-col__row:last-child { border:none; }
+.compare-col__row-label { color:var(--edith-ink-600); }
+.compare-col__row-val { font-family:var(--font-mono);font-weight:500;color:var(--edith-ink-900); }
+.compare-col--winner .compare-col__head { color:var(--edith-green-600); }
+
+/* Step slider display */
+.step-label { font-size:var(--text-xs);font-family:var(--font-mono);color:var(--edith-ink-400);text-align:right;display:block;margin-top:var(--space-1); }
+
+/* Info callout */
+.info-box { background:var(--edith-gold-100);border-left:3px solid var(--edith-gold-600);padding:var(--space-4);font-size:var(--text-sm);color:var(--edith-ink-700);line-height:1.6; }
+.info-box strong { color:var(--edith-navy-900); }
+
+/* Amortisation table */
+.amort-table { width:100%;border-collapse:collapse;font-size:var(--text-xs); }
+.amort-table th,.amort-table td { text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--edith-line-100); }
+.amort-table th:first-child,.amort-table td:first-child { text-align:left; }
+.amort-table th { font-family:var(--font-mono);color:var(--edith-ink-400);font-weight:500; }
+.amort-table tbody tr:hover { background:var(--edith-paper-50); }
+.table-scroll { overflow-x:auto; }
+
+/* Regulatory source tag */
+.reg-source { display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-ink-400);margin-top:var(--space-2); }
+.reg-source::before { content:"↗";font-size:.75rem; }
+
+/* Tabs (for plot vs flat) */
+.tabs { display:flex;border-bottom:1px solid var(--edith-line-200);margin-bottom:var(--space-5); }
+.tab-btn { padding:.6rem var(--space-4);font-size:var(--text-sm);font-weight:600;color:var(--edith-ink-600);border-bottom:2px solid transparent;transition:color .15s,border-color .15s; }
+.tab-btn.is-active { color:var(--edith-navy-900);border-bottom-color:var(--edith-gold-600); }
+.tab-panel { display:none; }
+.tab-panel.is-active { display:block; }
+
+/* Notification toast */
+.toast {
+  position:fixed;bottom:var(--space-5);right:var(--space-5);
+  background:var(--edith-navy-900);color:var(--edith-white);
+  padding:.65rem var(--space-5);font-size:var(--text-sm);
+  border-left:3px solid var(--edith-gold-600);
+  box-shadow:var(--shadow-modal);
+  z-index:1000;
+  transform:translateY(calc(100% + var(--space-5)));
+  transition:transform .25s;
+}
+.toast.is-visible { transform:translateY(0); }
+
+/* ============================================================
+   METHODOLOGY SECTION
+   ============================================================ */
+.meth-section { background:var(--edith-paper-100);border-top:1px solid var(--edith-line-200); }
+.meth-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6); }
+@media(max-width:800px){ .meth-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:500px){ .meth-grid{grid-template-columns:1fr;} }
+.meth-item { padding:var(--space-5);background:var(--edith-white);border:1px solid var(--edith-line-200); }
+.meth-item h3 { font-size:var(--text-sm);font-family:var(--font-display);margin-bottom:var(--space-3); }
+.meth-item p { font-size:var(--text-sm);color:var(--edith-ink-600);line-height:1.6; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer { background:var(--edith-navy-900);color:rgba(255,255,255,.7);padding-top:var(--space-8); }
+.footer-statement { border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:var(--space-7);margin-bottom:var(--space-7); }
+.footer-statement h2 { font-size:clamp(1.25rem,3vw,var(--text-2xl));color:var(--edith-white);max-width:26ch; }
+.footer-statement__mark { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-gold-500);letter-spacing:.06em;display:block;margin-top:var(--space-3); }
+.site-footer__grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:var(--space-6);margin-bottom:var(--space-7); }
+@media(max-width:900px){ .site-footer__grid{grid-template-columns:1fr 1fr 1fr;} }
+@media(max-width:560px){ .site-footer__grid{grid-template-columns:1fr 1fr;} }
+.site-footer__grid h3 { font-family:var(--font-mono);font-size:var(--text-xs);color:var(--edith-gold-500);letter-spacing:.06em;margin-bottom:var(--space-4); }
+.site-footer__grid ul { display:flex;flex-direction:column;gap:var(--space-2); }
+.site-footer__grid ul a { font-size:var(--text-sm);color:rgba(255,255,255,.6);transition:color .15s; }
+.site-footer__grid ul a:hover { color:var(--edith-white); }
+.footer-brand .site-logo { margin-bottom:var(--space-3); }
+.footer-brand p { font-size:var(--text-sm);line-height:1.6; }
+.footer-legal { border-top:1px solid rgba(255,255,255,.08);padding-block:var(--space-4);display:flex;gap:var(--space-5);flex-wrap:wrap;font-family:var(--font-mono);font-size:var(--text-xs);color:rgba(255,255,255,.4); }
+
+/* ============================================================
+   WHATSAPP FAB
+   ============================================================ */
+.sticky-cta { position:fixed;bottom:var(--space-5);right:var(--space-5);z-index:90; }
+.whatsapp-fab { display:flex;align-items:center;justify-content:center;width:52px;height:52px;background:#25d366;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,.2); }
+.whatsapp-fab svg { width:28px;height:28px;fill:white; }
+
+/* ============================================================
+   SEARCH OVERLAY
+   ============================================================ */
+.search-overlay { display:none;position:fixed;inset:0;z-index:400;background:rgba(13,27,42,.95);align-items:center;justify-content:center; }
+.search-overlay.is-open { display:flex; }
+.search-overlay form { display:flex;gap:var(--space-4);align-items:center;width:100%;max-width:640px;padding:var(--space-5); }
+.search-overlay input { flex:1;background:transparent;border:none;border-bottom:2px solid rgba(255,255,255,.3);padding:var(--space-3) 0;color:white;font-size:var(--text-xl);outline:none; }
+.search-overlay input::placeholder { color:rgba(255,255,255,.35); }
+.search-overlay__close { color:rgba(255,255,255,.6);font-size:var(--text-md); }
+
+/* @media reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after { transition-duration:0.01ms !important;animation-duration:0.01ms !important; }
+}
+</style>
 </head>
 <body>
-<a href="#main" class="skip-link"><span data-i18n="t0001">Skip to content</span></a>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- HEADER -->
 <header class="site-header">
   <div class="container site-header__bar">
-    <a href="index.html" class="site-logo"><span data-i18n="t0002">EDITH</span><strong>.</strong></a>
-
-    <nav class="main-nav" id="mainNav" aria-label="Primary" data-i18n-attr-aria-label="t0003">
+    <a href="index.html" class="site-logo">EDITH<strong>.</strong></a>
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
         <li>
-          <button aria-expanded="false" aria-haspopup="true"><span data-i18n="t0004">Collaborate ▾</span></button>
+          <button aria-expanded="false" aria-haspopup="true">Collaborate ▾</button>
           <ul class="dropdown">
-            <li><a href="invest-with-us.html"><span data-i18n="t0005">Invest with us</span></a></li>
-            <li><a href="builder-jv.html"><span data-i18n="t0006">Builder JV</span></a></li>
-            <li><a href="engineer-partnership.html"><span data-i18n="t0007">Engineer Partnership</span></a></li>
-            <li><a href="property-marketplace.html"><span data-i18n="t0008">List your Property / Land</span></a></li>
-            <li><a href="become-an-agent.html"><span data-i18n="t0009">Become an Agent</span></a></li>
+            <li><a href="invest-with-us.html">Invest with us</a></li>
+            <li><a href="builder-jv.html">Builder JV</a></li>
+            <li><a href="engineer-partnership.html">Engineer Partnership</a></li>
+            <li><a href="property-marketplace.html">List your Property / Land</a></li>
+            <li><a href="become-an-agent.html">Become an Agent</a></li>
           </ul>
         </li>
         <li>
-          <button aria-expanded="false" aria-haspopup="true"><span data-i18n="t0010">Services ▾</span></button>
+          <button aria-expanded="false" aria-haspopup="true">Services ▾</button>
           <ul class="dropdown">
-            <li><a href="get-a-quote.html#construction"><span data-i18n="t0011">Construction &amp; Masonry</span></a></li>
-            <li><a href="get-a-quote.html#interiors"><span data-i18n="t0012">Interior Design</span></a></li>
-            <li><a href="get-a-quote.html#borewell"><span data-i18n="t0013">Borewell Drilling</span></a></li>
-            <li><a href="professional-services.html#rera"><span data-i18n="t0014">RERA &amp; Agent Registration</span></a></li>
-            <li><a href="professional-services.html"><span data-i18n="t0015">Financial &amp; Compliance Advisory</span></a></li>
-            <li><a href="get-a-quote.html"><span data-i18n="t0016">Get a Quote</span></a></li>
+            <li><a href="get-a-quote.html">Construction &amp; Masonry</a></li>
+            <li><a href="get-a-quote.html#interiors">Interior Design</a></li>
+            <li><a href="get-a-quote.html#borewell">Borewell Drilling</a></li>
+            <li><a href="professional-services.html#rera">RERA &amp; Agent Registration</a></li>
+            <li><a href="professional-services.html">Financial &amp; Compliance Advisory</a></li>
+            <li><a href="get-a-quote.html">Get a Quote</a></li>
           </ul>
         </li>
         <li>
-          <button aria-expanded="false" aria-haspopup="true"><span data-i18n="t0017">Grow with us ▾</span></button>
+          <button aria-expanded="false" aria-haspopup="true">Grow with us ▾</button>
           <ul class="dropdown">
-            <li><a href="internships.html"><span data-i18n="t0018">Student Internships</span></a></li>
-            <li><a href="training-placement.html"><span data-i18n="t0019">Training &amp; Placement Track</span></a></li>
-            <li><a href="careers.html"><span data-i18n="t0020">Careers</span></a></li>
+            <li><a href="internships.html">Student Internships</a></li>
+            <li><a href="training-placement.html">Training &amp; Placement Track</a></li>
+            <li><a href="careers.html">Careers</a></li>
           </ul>
         </li>
         <li>
-          <button aria-expanded="false" aria-haspopup="true"><span data-i18n="t0021">Learn ▾</span></button>
+          <button aria-expanded="false" aria-haspopup="true">Learn ▾</button>
           <ul class="dropdown">
-            <li><a href="blog/index.html"><span data-i18n="t0022">Blog / Knowledge Hub</span></a></li>
-            <li><a href="calculators.html"><span data-i18n="t0023">Calculators &amp; Tools</span></a></li>
-            <li><a href="faqs.html"><span data-i18n="t0024">FAQs</span></a></li>
+            <li><a href="blog/index.html">Blog / Knowledge Hub</a></li>
+            <li><a href="calculators.html">Calculators &amp; Tools</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
           </ul>
         </li>
-        <li><a href="about.html"><span data-i18n="t0025">About &amp; Track Record</span></a></li>
-        <li><a href="contact.html"><span data-i18n="t0026">Contact</span></a></li>
+        <li><a href="about.html">About &amp; Track Record</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-
     <div class="header-actions">
-      <button class="header-search-btn" id="searchOpen" aria-label="Search" data-i18n-attr-aria-label="t0027"><span data-i18n="t0027">Search</span></button>
-      <button class="header-lang-toggle" id="langToggle" aria-label="Switch language" data-i18n-attr-aria-label="t0028"><span data-i18n="t0029">EN / తె</span></button>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" data-i18n-attr-aria-label="t0030">☰</button>
+      <button class="header-search-btn" id="searchOpen">Search</button>
+      <button class="header-lang-toggle" id="langToggle">EN / తె</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<!-- Search overlay -->
 <div class="search-overlay" id="searchOverlay">
   <form role="search" action="/search.html" method="get">
-    <label for="siteSearch" class="visually-hidden"><span data-i18n="t0031">Search EDITH</span></label>
-    <input type="search" id="siteSearch" name="q" placeholder="Search projects, services, blog…" autocomplete="off" data-i18n-attr-placeholder="t0032">
-    <button type="button" class="search-overlay__close" id="searchClose"><span data-i18n="t0033">Close</span></button>
+    <label for="siteSearch" class="visually-hidden">Search EDITH</label>
+    <input type="search" id="siteSearch" name="q" placeholder="Search projects, services, blog…" autocomplete="off">
+    <button type="button" class="search-overlay__close" id="searchClose">✕</button>
   </form>
 </div>
 
-
 <main id="main">
 
+<!-- PAGE HERO -->
 <section class="page-hero">
   <div class="container">
-    <p class="page-hero__eyebrow"><span data-i18n="t0440">EDITH-09 · Calculators &amp; Tools</span></p>
-    <h1><span data-i18n="t0441">Ten calculators, one purpose: answer a real question fast</span></h1>
-    <p><span data-i18n="t0442">No login, no waiting. Every calculator below carries the same disclaimer: indicative and for general information only.</span></p>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="calc-teaser" style="margin-bottom: var(--space-8);">
-      <div><h2><span data-i18n="t0443">Construction cost estimator</span></h2><p><span data-i18n="t0444">Built-up area, quality tier, and floor count → a total cost range.</span> <strong><span data-i18n="t0445">Live now</span></strong> <span data-i18n="t0446">— see the homepage teaser or use it inline below.</span></p></div>
-      <div class="calc-card">
-        <form id="costCalcForm">
-          <div class="calc-field"><label for="builtUpArea"><span data-i18n="t0105">Built-up area (sq. ft.)</span></label><input type="number" id="builtUpArea" min="100" step="10" value="1500" required></div>
-          <div class="calc-field"><label for="qualityTier"><span data-i18n="t0106">Quality tier</span></label><select id="qualityTier"><option value="basic"><span data-i18n="t0107">Basic</span></option><option value="standard" selected><span data-i18n="t0108">Standard</span></option><option value="premium"><span data-i18n="t0109">Premium</span></option></select></div>
-          <div class="calc-field"><label for="floors"><span data-i18n="t0110">Number of floors</span></label><input type="number" id="floors" min="1" max="10" value="1" required></div>
-          <button type="submit" class="btn btn-primary btn-block"><span data-i18n="t0447">Calculate</span></button>
-        </form>
-        <div class="calc-result" id="calcResult" hidden><strong id="calcTotal">—</strong><span id="calcBreakdown">—</span></div>
-        <p class="disclaimer"><span data-i18n="t0448">Indicative and for general information only; not professional, legal, tax or investment advice.</span></p>
+    <p class="page-hero__eyebrow">EDITH-09 · Calculators &amp; Tools</p>
+    <h1>Make the numbers clear before you make the move.</h1>
+    <p>Eleven free calculators for property, construction, and financing decisions in Andhra Pradesh and Telangana. Indicative only — no login required.</p>
+    <div class="page-hero__meta">
+      <div class="page-hero__stat">
+        <strong>11</strong>
+        <span>CALCULATORS</span>
+      </div>
+      <div class="page-hero__stat">
+        <strong>AP / TG</strong>
+        <span>REGION SPECIFIC</span>
+      </div>
+      <div class="page-hero__stat">
+        <strong>₹ INR</strong>
+        <span>INDIAN FORMATTING</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="offer-grid">
-      <div class="offer-card"><h3><span data-i18n="t0449">Land-unit converter</span></h3><p><span data-i18n="t0450">sq.ft ⇄ sq.yd ⇄ cent ⇄ acre ⇄ gunta.</span></p><span class="offer-card__price"><span data-i18n="t0451">Live below</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0452">Home-loan EMI</span></h3><p><span data-i18n="t0453">Loan amount, rate, tenure → monthly EMI + amortisation summary.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0455">Stamp duty &amp; registration (AP)</span></h3><p><span data-i18n="t0456">Property value, type, location slab → all-in registration cost.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0457">GST on under-construction property</span></h3><p><span data-i18n="t0458">Property value + project type → applicable GST.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0459">JDA share calculator</span></h3><p><span data-i18n="t0460">Land extent, ratio, saleable rate → landowner vs. developer share.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0461">Investor ROI projection</span></h3><p><span data-i18n="t0462">Investment amount, model, tenure → a projected outcome range.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0463">Rental yield</span></h3><p><span data-i18n="t0464">Property price + monthly rent → gross and net yield.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0465">Plot vs. flat comparison</span></h3><p><span data-i18n="t0466">Prices, appreciation, and rent assumptions → side-by-side projection.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-      <div class="offer-card"><h3><span data-i18n="t0467">Feasibility / break-even</span></h3><p><span data-i18n="t0468">Land + construction cost, saleable area → break-even rate per sq.ft.</span></p><span class="offer-card__price"><span data-i18n="t0454">Coming soon</span></span></div>
-    </div>
+<!-- CALCULATOR GRID -->
+<section class="calc-grid-section section">
+  <div class="container">
+    <p class="calc-grid-label">SELECT A CALCULATOR TO OPEN THE WORKSPACE</p>
 
-    <div class="calc-card" style="max-width:520px; margin-top:var(--space-8);">
-      <h3><span data-i18n="t0449">Land-unit converter</span></h3>
-      <form id="landConvForm">
-        <div class="calc-field"><label for="lc-value"><span data-i18n="t0469">Value</span></label><input type="number" id="lc-value" value="1" step="0.01"></div>
-        <div class="calc-field"><label for="lc-unit"><span data-i18n="t0470">Unit</span></label>
-          <select id="lc-unit"><option value="acre"><span data-i18n="t0471">Acre</span></option><option value="cent"><span data-i18n="t0472">Cent</span></option><option value="sqyd"><span data-i18n="t0473">Sq. yard</span></option><option value="sqft"><span data-i18n="t0474">Sq. foot</span></option><option value="gunta"><span data-i18n="t0475">Gunta</span></option></select>
+    <div class="calc-grid" role="list">
+
+      <!-- 1. Construction Cost — featured (spans 2) -->
+      <button class="calc-card calc-card--featured" data-calc="construction" role="listitem" aria-label="Open Construction Cost Estimator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18M3 7l9-4 9 4M4 7v14M20 7v14M9 21V11h6v10"/></svg>
         </div>
-        <button type="submit" class="btn btn-primary btn-block"><span data-i18n="t0476">Convert</span></button>
-      </form>
-      <div class="calc-result" id="landConvResult" hidden><span id="landConvOut">—</span></div>
-      <p class="disclaimer"><span data-i18n="t0477">Indicative and for general information only.</span></p>
-    </div>
+        <span class="calc-card__cat">CONSTRUCTION</span>
+        <span class="calc-card__name">Construction Cost Estimator</span>
+        <span class="calc-card__desc">Enter built-up area, quality tier, and floor count to get a total cost range with material/labour split.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
 
-    <p class="field-hint" style="margin-top:var(--space-6);"><span data-i18n="t0478">Every rate/slab above must be admin-editable once the admin panel exists, per brief §8 — never hard-coded permanently in a JS file (see README).</span></p>
+      <!-- 2. Land Converter -->
+      <button class="calc-card" data-calc="land" role="listitem" aria-label="Open Land Unit Converter">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 3v18"/></svg>
+        </div>
+        <span class="calc-card__cat">LAND</span>
+        <span class="calc-card__name">Land Unit Converter</span>
+        <span class="calc-card__desc">Convert between sq.ft, sq.yd, cent, gunta, and acre — with AP/Telangana standard factors.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 3. Home Loan EMI -->
+      <button class="calc-card" data-calc="emi" role="listitem" aria-label="Open Home Loan EMI Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span class="calc-card__cat">FINANCING</span>
+        <span class="calc-card__name">Home Loan EMI</span>
+        <span class="calc-card__desc">Loan amount, interest rate, and tenure → monthly EMI, total interest, and repayment breakdown.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 4. AP Stamp Duty -->
+      <button class="calc-card" data-calc="stampdUty" role="listitem" aria-label="Open AP Stamp Duty Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <span class="calc-card__cat">REGISTRATION</span>
+        <span class="calc-card__name">AP Stamp Duty &amp; Registration</span>
+        <span class="calc-card__desc">Property value and type → stamp duty, transfer duty, and registration fee under AP rates.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 5. GST -->
+      <button class="calc-card" data-calc="gst" role="listitem" aria-label="Open GST Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <span class="calc-card__cat">TAXATION</span>
+        <span class="calc-card__name">GST on Property</span>
+        <span class="calc-card__desc">Project type and property value → correct GST rate, taxable basis, and total payable.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 6. JDA Share -->
+      <button class="calc-card" data-calc="jda" role="listitem" aria-label="Open JDA Share Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <span class="calc-card__cat">JDA / DEVELOPMENT</span>
+        <span class="calc-card__name">JDA Share Calculator</span>
+        <span class="calc-card__desc">Land extent, share ratio, and sale rate → landowner and developer area and value breakdown.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 7. JV Sharing -->
+      <button class="calc-card" data-calc="jv" role="listitem" aria-label="Open JV Sharing Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span class="calc-card__cat">JOINT VENTURE</span>
+        <span class="calc-card__name">JV Sharing Calculator</span>
+        <span class="calc-card__desc">Land value, capital contribution, and EDITH's input → indicative profit-share percentage split.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 8. Investor ROI -->
+      <button class="calc-card" data-calc="roi" role="listitem" aria-label="Open Investor ROI Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span class="calc-card__cat">INVESTMENT</span>
+        <span class="calc-card__name">Investor ROI Projection</span>
+        <span class="calc-card__desc">Initial investment, annual income, exit value, and tenure → ROI, CAGR, and cash-flow summary.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 9. Rental Yield -->
+      <button class="calc-card" data-calc="rental" role="listitem" aria-label="Open Rental Yield Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <span class="calc-card__cat">RENTAL</span>
+        <span class="calc-card__name">Rental Yield Calculator</span>
+        <span class="calc-card__desc">Purchase price, monthly rent, and expenses → gross and net rental yield with income breakdown.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 10. Plot vs Flat -->
+      <button class="calc-card" data-calc="plotvflat" role="listitem" aria-label="Open Plot vs Flat Comparison">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="9" height="18"/><rect x="13" y="8" width="9" height="13"/></svg>
+        </div>
+        <span class="calc-card__cat">COMPARISON</span>
+        <span class="calc-card__name">Plot vs Flat Comparison</span>
+        <span class="calc-card__desc">Separate price, appreciation, and cost assumptions for plot and flat → side-by-side 10-year projection.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+      <!-- 11. Feasibility -->
+      <button class="calc-card" data-calc="feasibility" role="listitem" aria-label="Open Project Feasibility Calculator">
+        <div class="calc-card__icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <span class="calc-card__cat">FEASIBILITY</span>
+        <span class="calc-card__name">Project Feasibility &amp; Break-even</span>
+        <span class="calc-card__desc">Land, construction, and saleable area → profit, margin, break-even rate, and sensitivity view.</span>
+        <span class="calc-card__cta">Open calculator →</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY STRIP -->
+<section class="meth-section section--tight">
+  <div class="container">
+    <div class="meth-grid">
+      <div class="meth-item">
+        <h3>AP / Telangana accuracy</h3>
+        <p>Stamp duty and registration rates reflect currently published Andhra Pradesh IGRS figures (Aug 2026): 5% stamp duty + 1.5% transfer duty + 1% registration fee for a sale deed. GST follows the CGST/SGST rates set by the GST Council for real estate, unchanged by the Sept 2025 rate rationalisation. All rates are configurable — update them without touching application logic.</p>
+      </div>
+      <div class="meth-item">
+        <h3>Indian number formatting</h3>
+        <p>Every rupee figure uses the Indian digit grouping (₹1,00,000 not ₹100,000). Where amounts exceed ₹1 lakh or ₹1 crore, the natural spoken form is shown alongside the figure.</p>
+      </div>
+      <div class="meth-item">
+        <h3>Indicative, not advisory</h3>
+        <p>All results are starting-point estimates. Actual construction costs, stamp duty, GST, loan eligibility, rental income, and investment returns can vary. Consult a qualified professional before acting.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 </main>
 
+<!-- MODAL BACKDROP -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+    <div class="modal__header">
+      <span class="modal__brand" aria-hidden="true">EDITH<strong>.</strong></span>
+      <div class="modal__header-text">
+        <div class="modal__eyebrow-row">
+          <p class="modal__cat" id="modalCat"></p>
+          <span class="modal__free-tag">Free tool</span>
+        </div>
+        <h2 class="modal__title" id="modalTitle"></h2>
+        <p class="modal__subtitle" id="modalSubtitle"></p>
+      </div>
+      <button class="modal__close" id="modalClose" aria-label="Close calculator">✕</button>
+    </div>
+    <div class="modal__body" id="modalBody">
+      <!-- injected by JS -->
+    </div>
+    <div class="modal__footer">
+      <div class="modal__footer-left">
+        <p class="modal__footer-brand">EDITH — free calculators, no login, no catch</p>
+        <p class="modal__disclaimer">Indicative only. Not professional, legal, tax, or investment advice. Rates and regulatory charges are subject to change — verify with the relevant authority before transacting.</p>
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn-ghost btn-sm" id="modalReset">Reset</button>
+        <button class="btn btn-outline btn-sm" id="modalCopy">Copy result</button>
+        <button class="btn btn-gold btn-sm modal__calc-btn" id="modalCalculate">Calculate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
   <div class="container footer-statement">
-    <h2><span data-i18n="t0529">One network. Nine ways in. Every stage of a build.</span></h2>
+    <h2>One network. Nine ways in. Every stage of a build.</h2>
     <span class="footer-statement__mark">EDITH / AP &amp; TELANGANA</span>
   </div>
   <div class="container site-footer__grid">
     <div class="footer-brand">
-      <a href="index.html" class="site-logo"><span data-i18n="t0002">EDITH</span><strong>.</strong></a>
-      <p><span data-i18n="t0142">A construction and real-estate network for Andhra Pradesh &amp; Telangana. Door No 49-58-6/2, Green Park Colony, Visakhapatnam – 530013, AP</span></p>
-      <div><span data-i18n="t0143">Sister companies: —</span></div>
+      <a href="index.html" class="site-logo">EDITH<strong>.</strong></a>
+      <p>A construction and real-estate network for Andhra Pradesh &amp; Telangana. Door No 49-58-6/2, Green Park Colony, Visakhapatnam – 530013, AP</p>
     </div>
     <div>
-      <h3><span data-i18n="t0144">Collaborate</span></h3>
+      <h3>Collaborate</h3>
       <ul>
-        <li><a href="invest-with-us.html"><span data-i18n="t0005">Invest with us</span></a></li>
-        <li><a href="builder-jv.html"><span data-i18n="t0006">Builder JV</span></a></li>
-        <li><a href="engineer-partnership.html"><span data-i18n="t0007">Engineer Partnership</span></a></li>
-        <li><a href="property-marketplace.html"><span data-i18n="t0145">List Property/Land</span></a></li>
-        <li><a href="become-an-agent.html"><span data-i18n="t0009">Become an Agent</span></a></li>
+        <li><a href="invest-with-us.html">Invest with us</a></li>
+        <li><a href="builder-jv.html">Builder JV</a></li>
+        <li><a href="engineer-partnership.html">Engineer Partnership</a></li>
+        <li><a href="property-marketplace.html">List Property / Land</a></li>
+        <li><a href="become-an-agent.html">Become an Agent</a></li>
       </ul>
     </div>
     <div>
-      <h3><span data-i18n="t0146">Services</span></h3>
+      <h3>Services</h3>
       <ul>
-        <li><a href="get-a-quote.html"><span data-i18n="t0011">Construction &amp; Masonry</span></a></li>
-        <li><a href="get-a-quote.html#interiors"><span data-i18n="t0012">Interior Design</span></a></li>
-        <li><a href="get-a-quote.html#borewell"><span data-i18n="t0013">Borewell Drilling</span></a></li>
-        <li><a href="professional-services.html"><span data-i18n="t0147">RERA &amp; Compliance</span></a></li>
-        <li><a href="get-a-quote.html"><span data-i18n="t0016">Get a Quote</span></a></li>
+        <li><a href="get-a-quote.html">Construction &amp; Masonry</a></li>
+        <li><a href="get-a-quote.html#interiors">Interior Design</a></li>
+        <li><a href="get-a-quote.html#borewell">Borewell Drilling</a></li>
+        <li><a href="professional-services.html">RERA &amp; Compliance</a></li>
+        <li><a href="get-a-quote.html">Get a Quote</a></li>
       </ul>
     </div>
     <div>
-      <h3><span data-i18n="t0148">Grow &amp; Learn</span></h3>
+      <h3>Grow &amp; Learn</h3>
       <ul>
-        <li><a href="internships.html"><span data-i18n="t0018">Student Internships</span></a></li>
-        <li><a href="training-placement.html"><span data-i18n="t0149">Training &amp; Placement</span></a></li>
-        <li><a href="careers.html"><span data-i18n="t0020">Careers</span></a></li>
-        <li><a href="blog/index.html"><span data-i18n="t0150">Blog</span></a></li>
-        <li><a href="calculators.html"><span data-i18n="t0151">Calculators</span></a></li>
+        <li><a href="internships.html">Student Internships</a></li>
+        <li><a href="training-placement.html">Training &amp; Placement</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="calculators.html">Calculators</a></li>
       </ul>
     </div>
     <div>
-      <h3><span data-i18n="t0152">Legal</span></h3>
+      <h3>Legal</h3>
       <ul>
-        <li><a href="privacy-policy.html"><span data-i18n="t0153">Privacy Policy</span></a></li>
-        <li><a href="terms.html"><span data-i18n="t0154">Terms of Use</span></a></li>
-        <li><a href="disclaimer.html"><span data-i18n="t0155">Disclaimer</span></a></li>
-        <li><a href="refund-policy.html"><span data-i18n="t0156">Refund / Cancellation</span></a></li>
-        <li><a href="sitemap.html"><span data-i18n="t0157">Sitemap</span></a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="refund-policy.html">Refund / Cancellation</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
       </ul>
     </div>
   </div>
   <div class="container footer-legal">
-    <span><span data-i18n="t0040">CIN: U43900AP2023PTC111419</span></span>
-    <span><span data-i18n="t0158">RERA No.: Applied For</span></span>
-    <span><span data-i18n="t0042">GST: 37AAHCE6199E1ZA</span></span>
-    <span>© <span id="yearNow"></span> <span data-i18n="t0159">EDITH. All rights reserved.</span></span>
+    <span>CIN: U43900AP2023PTC111419</span>
+    <span>RERA No.: Applied For</span>
+    <span>GST: 37AAHCE6199E1ZA</span>
+    <span>© <span id="yearNow"></span> EDITH. All rights reserved.</span>
   </div>
 </footer>
 
-<!-- WhatsApp float -->
 <div class="sticky-cta">
-  <a class="whatsapp-fab" href="https://wa.me/918977530174" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-i18n-attr-aria-label="t0160">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1-.4.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4L9 8.4c-.2-.4-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3 1 2.6 1.1 2.8.1.2 2 3 4.8 4.2a8 8 0 0 0 1.6.5c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  <a class="whatsapp-fab" href="https://wa.me/918977530174" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.3L2 22l4.8-1.6A11 11 0 1 0 20.5 3.5zM12 20.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 1 1-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1-.4.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.1 0-.3 0-.4L9 8.4c-.2-.4-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-1 2.3c0 1.3 1 2.6 1.1 2.8.1.2 2 3 4.8 4.2a8 8 0 0 0 1.6.5c.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
   </a>
 </div>
 
+<script>
+/* ============================================================
+   EDITH Calculator Suite — calculators-suite.js
+   ============================================================ */
+'use strict';
 
-<script>document.getElementById('yearNow').textContent = new Date().getFullYear();</script>
-<script src="js/i18n-te.js"></script>
-<script src="js/global.js"></script>
-<script src="js/lead-forms.js"></script>
-<script src="js/calculator.js"></script>
-<script src="js/land-converter.js"></script>
+/* ── CONFIGURATION (swap these values — never hunt through calc logic) ─── */
+var CONFIG = {
+  construction: {
+    rates: { basic: 1650, standard: 2100, premium: 2850 }, /* ₹/sq.ft — indicative, AP city-average band */
+    materialShare: 0.58,
+    /* Verify with EDITH ops before go-live — indicative market band only */
+    effectiveDate: 'Aug 2026',
+    rangeVariance: 0.10  /* ±10% range shown */
+  },
+  landUnits: {
+    /* Factors: sq.ft per unit. AP/Telangana standard gunta = 1/40 acre */
+    sqft:  1,
+    sqyd:  9,
+    cent:  435.6,
+    gunta: 1089,
+    acre:  43560
+  },
+  homeLoan: {
+    defaultRate: 8.10,   /* % p.a. — representative mid-band, top lenders Sept 2026 */
+    minRate: 7.10,
+    maxRate: 18
+  },
+  /* AP Registration — Andhra Pradesh Stamps & Registration Dept. (IGRS AP), verified Aug 2026
+     Stamp duty 5% + Transfer duty 1.5% + Registration fee 1% (no cap) on the higher of
+     transaction value or the government guideline (circle) value.
+     Family gift deed: 2% stamp duty + 0.5% registration fee (capped ₹1,000–₹10,000), no transfer duty.
+     Note: AP revised urban land guideline values upward from 1 Feb 2026 — the guideline value
+     used for a specific property may now be higher than before, even if the agreed price hasn't moved.
+     Source: registration.ap.gov.in (IGRS AP) */
+  APRegistration: {
+    stampDuty:          0.05,   /* 5% on market/guideline value, whichever is higher */
+    transferDuty:       0.015,  /* 1.5% */
+    registrationFee:    0.01,   /* 1%, uncapped, for a standard sale deed */
+    giftStampDuty:       0.02,   /* 2% — gift to an immediate family member */
+    giftRegistrationFee: 0.005,  /* 0.5%, capped ₹1,000–₹10,000 */
+    giftRegFeeMin: 1000,
+    giftRegFeeMax: 10000,
+    effectiveDate: 'Aug 2026',
+    source: 'registration.ap.gov.in (IGRS AP)'
+  },
+  /* GST — CGST+SGST as per GST Council (current as of Aug 2026; real-estate slabs unchanged
+     since the April 2019 scheme, including after the Sept 2025 GST-rate rationalisation)
+     Under-construction residential: 5% without ITC (affordable 1%)
+     Under-construction commercial: 12% without ITC
+     Completed property (completion certificate issued): Nil GST
+     Affordable: carpet ≤60 sq.m metro / ≤90 sq.m non-metro, value ≤₹45L */
+  GST: {
+    residential:    0.05,  /* 5% without ITC */
+    affordable:     0.01,  /* 1% without ITC */
+    commercial:     0.12,  /* 12% without ITC */
+    landDeduction:  0.33,  /* 1/3rd land deduction from total consideration */
+    effectiveDate: '2019-04-01',
+    source: 'cbic.gov.in'
+  },
+  JDA: {
+    /* No regulatory rate — fully user-defined */
+  },
+  JV: {
+    /* Contribution-weighted split */
+  },
+  ROI: {
+    /* No fixed rates — fully user-defined */
+  }
+};
+
+/* ── UTILITIES ─────────────────────────────────────────────────────────── */
+
+function formatINR(n) {
+  if (!isFinite(n)) return '—';
+  var rounded = Math.round(n);
+  var isNeg = rounded < 0;
+  var s = String(Math.abs(rounded));
+  var last3 = s.slice(-3);
+  var rest = s.slice(0, -3);
+  if (rest) last3 = ',' + last3;
+  var grouped = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',') + last3;
+  return (isNeg ? '-₹' : '₹') + grouped;
+}
+
+function naturalINR(n) {
+  if (!isFinite(n)) return '—';
+  var abs = Math.abs(n);
+  var sign = n < 0 ? '-' : '';
+  if (abs >= 1e7) return sign + '₹' + (abs / 1e7).toFixed(2).replace(/\.?0+$/, '') + ' Cr';
+  if (abs >= 1e5) return sign + '₹' + (abs / 1e5).toFixed(2).replace(/\.?0+$/, '') + ' L';
+  return formatINR(n);
+}
+
+function parseNum(str) {
+  if (str === '' || str === null || str === undefined) return NaN;
+  return parseFloat(String(str).replace(/,/g, ''));
+}
+
+function pct(n) { return (isFinite(n) ? n.toFixed(2) : '—') + '%'; }
+
+function setWidth(el, pctVal) {
+  if (el) {
+    el.style.width = '0%';
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        el.style.width = Math.min(100, Math.max(0, pctVal)) + '%';
+      });
+    });
+  }
+}
+
+function animateValue(el, to) {
+  if (!el) return;
+  el.textContent = to;
+}
+
+function svgDonut(slices, cx, cy, r, total) {
+  /* slices: [{value, color, label}] */
+  var circumference = 2 * Math.PI * r;
+  var offset = 0;
+  var paths = '';
+  slices.forEach(function (s) {
+    var frac = total > 0 ? s.value / total : 0;
+    var dash = frac * circumference;
+    var gap = circumference - dash;
+    paths += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r +
+      '" fill="none" stroke="' + s.color + '" stroke-width="28"' +
+      ' stroke-dasharray="' + dash + ' ' + gap + '"' +
+      ' stroke-dashoffset="-' + offset + '"' +
+      ' transform="rotate(-90 ' + cx + ' ' + cy + ')"/>';
+    offset += dash;
+  });
+  return paths;
+}
+
+/* ── VALIDATION ─────────────────────────────────────────────────────────── */
+function clearErr(input) {
+  var wrap = input.closest('.field');
+  if (wrap) { wrap.classList.remove('has-error'); input.classList.remove('is-error'); }
+}
+
+function setErr(input, msg) {
+  var wrap = input.closest('.field');
+  if (!wrap) return false;
+  wrap.classList.add('has-error');
+  input.classList.add('is-error');
+  var errEl = wrap.querySelector('.field__error');
+  if (errEl) errEl.textContent = msg;
+  return false;
+}
+
+function validatePositive(input, label) {
+  clearErr(input);
+  var v = parseNum(input.value);
+  if (isNaN(v) || v <= 0) return setErr(input, label + ' must be a positive number.');
+  return true;
+}
+
+function validateRange(input, label, min, max) {
+  clearErr(input);
+  var v = parseNum(input.value);
+  if (isNaN(v)) return setErr(input, label + ' is required.');
+  if (v < min || v > max) return setErr(input, label + ' must be between ' + min + ' and ' + max + '.');
+  return true;
+}
+
+/* ── TOAST ─────────────────────────────────────────────────────────────── */
+var toastEl = null;
+var toastTimer = null;
+function showToast(msg) {
+  if (!toastEl) toastEl = document.getElementById('toast');
+  toastEl.textContent = msg;
+  toastEl.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toastEl.classList.remove('is-visible'); }, 2500);
+}
+
+/* ── MODAL ──────────────────────────────────────────────────────────────── */
+var backdrop = null, modal = null, modalBody = null;
+var modalCat, modalTitle, modalSubtitle, modalCalcBtn;
+var currentCalc = null;
+var focusTrap = [];
+var lastFocused = null;
+
+function openModal(calcKey) {
+  if (!backdrop) {
+    backdrop     = document.getElementById('modalBackdrop');
+    modal        = document.getElementById('modal');
+    modalBody    = document.getElementById('modalBody');
+    modalCat     = document.getElementById('modalCat');
+    modalTitle   = document.getElementById('modalTitle');
+    modalSubtitle= document.getElementById('modalSubtitle');
+    modalCalcBtn = document.getElementById('modalCalculate');
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalReset').addEventListener('click', function () {
+      if (currentCalc && CALCS[currentCalc] && CALCS[currentCalc].reset) CALCS[currentCalc].reset();
+    });
+    document.getElementById('modalCopy').addEventListener('click', copyResult);
+    modalCalcBtn.addEventListener('click', function () {
+      if (currentCalc && CALCS[currentCalc] && CALCS[currentCalc].calculate) CALCS[currentCalc].calculate();
+    });
+    backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', handleModalKey);
+  }
+
+  var def = CALCS[calcKey];
+  if (!def) return;
+  currentCalc = calcKey;
+  lastFocused = document.activeElement;
+
+  modalCat.textContent = def.cat;
+  modalTitle.textContent = def.title;
+  modalSubtitle.textContent = def.subtitle;
+  modalCalcBtn.textContent = def.calcLabel || 'Calculate';
+  modalBody.innerHTML = def.html();
+
+  backdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+
+  var firstInput = modalBody.querySelector('input, select, button');
+  if (firstInput) setTimeout(function () { firstInput.focus(); }, 50);
+
+  if (def.init) def.init();
+}
+
+function closeModal() {
+  if (!backdrop) return;
+  backdrop.classList.remove('is-open');
+  document.body.style.overflow = '';
+  currentCalc = null;
+  if (lastFocused) lastFocused.focus();
+}
+
+function handleModalKey(e) {
+  if (e.key === 'Escape') closeModal();
+}
+
+function copyResult() {
+  if (!currentCalc) return;
+  var def = CALCS[currentCalc];
+  var text = def && def.copyText ? def.copyText() : (document.querySelector('.result-primary__value') || {}).textContent || '';
+  if (!text) return;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function () { showToast('Result copied to clipboard.'); });
+  } else {
+    showToast('Copy not supported in this browser.');
+  }
+}
+
+/* ── HTML HELPERS ──────────────────────────────────────────────────────── */
+function fieldHTML(id, label, type, defVal, hint, min, max, step, suffix) {
+  var suffixHtml = suffix ? '<span class="suffix">' + suffix + '</span>' : '';
+  var inputClass = suffix ? 'has-suffix' : '';
+  return '<div class="field">' +
+    '<label for="' + id + '">' + label + '</label>' +
+    '<div class="input-wrap">' +
+    (type !== 'select' ? '<input type="' + type + '" id="' + id + '" value="' + defVal + '"' +
+      (min !== undefined ? ' min="' + min + '"' : '') +
+      (max !== undefined ? ' max="' + max + '"' : '') +
+      (step !== undefined ? ' step="' + step + '"' : '') +
+      ' class="' + inputClass + '">' : '') +
+    suffixHtml +
+    '</div>' +
+    (hint ? '<span class="field__hint">' + hint + '</span>' : '') +
+    '<span class="field__error"></span></div>';
+}
+
+function selectHTML(id, label, options, defVal, hint) {
+  var opts = options.map(function (o) {
+    return '<option value="' + o.v + '"' + (o.v === defVal ? ' selected' : '') + '>' + o.l + '</option>';
+  }).join('');
+  return '<div class="field">' +
+    '<label for="' + id + '">' + label + '</label>' +
+    '<select id="' + id + '">' + opts + '</select>' +
+    (hint ? '<span class="field__hint">' + hint + '</span>' : '') +
+    '<span class="field__error"></span></div>';
+}
+
+function methodHTML(text) {
+  return '<details class="methodology"><summary>How this is calculated</summary><p>' + text + '</p></details>';
+}
+
+function emptyState() {
+  return '<div class="calc-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg><p>Enter values above and calculate to see results.</p></div>';
+}
+
+/* ── CALCULATOR DEFINITIONS ─────────────────────────────────────────────── */
+var CALCS = {};
+
+/* ════════════════════════════════════════════════════════════
+   1. CONSTRUCTION COST
+   ════════════════════════════════════════════════════════════ */
+CALCS.construction = {
+  cat: 'CONSTRUCTION',
+  title: 'Construction Cost Estimator',
+  subtitle: 'Built-up area × quality rate × floors — with material/labour split',
+  calcLabel: 'Calculate cost',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      fieldHTML('cc-area', 'Built-up area', 'number', 1500, 'Square feet of total built-up area', 100, 50000, 10) +
+      selectHTML('cc-tier', 'Quality tier', [
+        { v: 'basic',    l: 'Basic  (₹1,650/sq.ft approx.)' },
+        { v: 'standard', l: 'Standard  (₹2,100/sq.ft approx.)' },
+        { v: 'premium',  l: 'Premium  (₹2,850/sq.ft approx.)' }
+      ], 'standard', 'Indicative rates — verify with EDITH for project-specific quote') +
+      fieldHTML('cc-floors', 'Number of floors', 'number', 1, 'Ground floor = 1', 1, 20, 1) +
+      '<div class="field"><label for="cc-loc">Region / city tier</label>' +
+      '<select id="cc-loc"><option value="1.0">Visakhapatnam / Vijayawada</option><option value="0.92">Tier-2 AP/TG city</option><option value="0.85">Rural / panchayat area</option></select>' +
+      '<span class="field__hint">Location adjustment factor applied to base rate</span></div>' +
+      methodHTML('Total cost = Built-up area × Rate per sq.ft × Floors × Location factor. Material share is indicatively 58%, labour 42%. A ±10% range is shown — actual costs depend on design complexity, site conditions, market prices, and contractor margins.') +
+      '</div>' +
+      '<div class="calc-outputs" id="cc-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var btn = document.getElementById('cc-calc');
+    if (btn) btn.addEventListener('click', CALCS.construction.calculate);
+  },
+  calculate: function () {
+    var areaEl   = document.getElementById('cc-area');
+    var tierEl   = document.getElementById('cc-tier');
+    var floorsEl = document.getElementById('cc-floors');
+    var locEl    = document.getElementById('cc-loc');
+    if (!validatePositive(areaEl, 'Built-up area')) return;
+    if (!validateRange(floorsEl, 'Floors', 1, 20)) return;
+
+    var area    = parseNum(areaEl.value);
+    var rate    = CONFIG.construction.rates[tierEl.value] || CONFIG.construction.rates.standard;
+    var floors  = parseInt(floorsEl.value) || 1;
+    var locFact = parseFloat(locEl.value) || 1;
+    var total   = area * rate * floors * locFact;
+    var low     = total * (1 - CONFIG.construction.rangeVariance);
+    var high    = total * (1 + CONFIG.construction.rangeVariance);
+    var mat     = total * CONFIG.construction.materialShare;
+    var lab     = total * (1 - CONFIG.construction.materialShare);
+    var matPct  = Math.round(CONFIG.construction.materialShare * 100);
+    var labPct  = 100 - matPct;
+
+    var out = document.getElementById('cc-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">ESTIMATED TOTAL COST</p>' +
+      '<p class="result-primary__value">' + formatINR(total) + '</p>' +
+      '<p class="result-primary__sub">Range: ' + naturalINR(low) + ' – ' + naturalINR(high) + ' (±10%)</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">COST PER SQ.FT</p><p class="result-cell__value">' + formatINR(Math.round(rate * locFact)) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">FLOORS</p><p class="result-cell__value">' + floors + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">MATERIAL (~' + matPct + '%)</p><p class="result-cell__value">' + naturalINR(mat) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">LABOUR (~' + labPct + '%)</p><p class="result-cell__value">' + naturalINR(lab) + '</p></div>' +
+      '</div>' +
+      '<div class="bar-chart">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Materials</span><span class="bar-row__val">' + formatINR(mat) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="cc-bar-mat"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Labour</span><span class="bar-row__val">' + formatINR(lab) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="cc-bar-lab"></div></div></div>' +
+      '</div>' +
+      '<p class="field__hint" style="margin-top:var(--space-3)">Rates are indicative (Aug 2026 market band). Get an EDITH project quote for accurate pricing.</p>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('cc-bar-mat'), matPct);
+      setWidth(document.getElementById('cc-bar-lab'), labPct);
+    }, 50);
+
+    CALCS.construction._last = formatINR(total) + ' estimated construction cost (' + area.toLocaleString('en-IN') + ' sq.ft, ' + tierEl.options[tierEl.selectedIndex].text.split('(')[0].trim() + ', ' + floors + ' floor' + (floors > 1 ? 's' : '') + ')';
+  },
+  reset: function () {
+    document.getElementById('cc-area').value = 1500;
+    document.getElementById('cc-tier').value = 'standard';
+    document.getElementById('cc-floors').value = 1;
+    document.getElementById('cc-loc').value = '1.0';
+    var out = document.getElementById('cc-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.construction._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   2. LAND CONVERTER
+   ════════════════════════════════════════════════════════════ */
+CALCS.land = {
+  cat: 'LAND',
+  title: 'Land Unit Converter',
+  subtitle: 'Convert between sq.ft, sq.yd, cent, gunta, and acre (AP/TG factors)',
+  calcLabel: 'Convert',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      fieldHTML('lc-val', 'Value to convert', 'number', 1, '', 0.000001, 1000000, 'any') +
+      selectHTML('lc-from', 'Convert from', [
+        { v: 'acre',  l: 'Acre' },
+        { v: 'gunta', l: 'Gunta (AP/TG — 1/40 acre)' },
+        { v: 'cent',  l: 'Cent (1/100 acre)' },
+        { v: 'sqyd',  l: 'Square yard (sq.yd)' },
+        { v: 'sqft',  l: 'Square foot (sq.ft)' }
+      ], 'acre') +
+      '<button class="btn btn-outline btn-block" id="lc-swap" style="margin-top:var(--space-2)">⇄ Swap unit</button>' +
+      methodHTML('Conversion factors (sq.ft per unit): 1 acre = 43,560 sq.ft · 1 gunta = 1,089 sq.ft (AP/Telangana: 1/40 acre) · 1 cent = 435.6 sq.ft · 1 sq.yd = 9 sq.ft. These are standard, not region-variable.') +
+      '</div>' +
+      '<div class="calc-outputs" id="lc-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var btn  = document.getElementById('lc-calc');
+    var swap = document.getElementById('lc-swap');
+    if (btn)  btn.addEventListener('click', CALCS.land.calculate);
+    if (swap) swap.addEventListener('click', CALCS.land.swap);
+    /* live update */
+    var valEl = document.getElementById('lc-val');
+    if (valEl) valEl.addEventListener('input', function () {
+      if (parseNum(valEl.value) > 0) CALCS.land.calculate();
+    });
+  },
+  swap: function () {
+    var fromEl = document.getElementById('lc-from');
+    /* Just reset from to sqft so user sees alternate starting point */
+    var units = Object.keys(CONFIG.landUnits);
+    var cur = units.indexOf(fromEl.value);
+    fromEl.value = units[(cur + 1) % units.length];
+    CALCS.land.calculate();
+  },
+  calculate: function () {
+    var valEl  = document.getElementById('lc-val');
+    var fromEl = document.getElementById('lc-from');
+    if (!validatePositive(valEl, 'Value')) return;
+    var val   = parseNum(valEl.value);
+    var from  = fromEl.value;
+    var sqft  = val * CONFIG.landUnits[from];
+    var units = CONFIG.landUnits;
+    var rows  = '';
+    Object.keys(units).forEach(function (u) {
+      if (u === from) return;
+      var converted = sqft / units[u];
+      rows += '<tr><td>' + {sqft:'Sq. foot',sqyd:'Sq. yard',cent:'Cent',gunta:'Gunta',acre:'Acre'}[u] + '</td><td>' +
+        converted.toLocaleString('en-IN', { maximumFractionDigits: 4 }) + ' ' + u + '</td></tr>';
+    });
+
+    var out = document.getElementById('lc-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">INPUT IN SQ.FT</p>' +
+      '<p class="result-primary__value">' + sqft.toLocaleString('en-IN', {maximumFractionDigits: 2}) + ' sq.ft</p>' +
+      '<p class="result-primary__sub">' + val.toLocaleString('en-IN', {maximumFractionDigits:4}) + ' ' + from + ' converted</p>' +
+      '</div>' +
+      '<div class="table-scroll" style="margin-top:var(--space-4)"><table class="amort-table">' +
+      '<thead><tr><th>Unit</th><th>Equivalent</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div>';
+
+    CALCS.land._last = val.toLocaleString('en-IN') + ' ' + from + ' = ' + sqft.toLocaleString('en-IN', {maximumFractionDigits: 2}) + ' sq.ft';
+  },
+  reset: function () {
+    document.getElementById('lc-val').value = 1;
+    document.getElementById('lc-from').value = 'acre';
+    var out = document.getElementById('lc-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.land._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   3. HOME LOAN EMI
+   ════════════════════════════════════════════════════════════ */
+CALCS.emi = {
+  cat: 'FINANCING',
+  title: 'Home Loan EMI Calculator',
+  subtitle: 'Reducing-balance EMI formula with year-by-year amortisation',
+  calcLabel: 'Calculate EMI',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="emi-amount">Loan amount</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="emi-amount" value="5000000" min="100000" max="500000000" step="100000"></div>' +
+      '<span class="field__hint field__hint--live" id="emi-amount-label">₹50 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="emi-rate">Interest rate (% p.a.)</label>' +
+      '<div class="input-wrap"><input type="number" id="emi-rate" value="8.1" min="1" max="36" step="0.05" class="has-suffix"><span class="suffix">%</span></div>' +
+      '<span class="field__hint">Typical bank rates: 7.1–8.9% across top lenders (Sept 2026)</span><span class="field__error"></span></div>' +
+      '<div class="field"><label for="emi-tenure">Loan tenure</label>' +
+      '<input type="range" id="emi-tenure" value="20" min="1" max="30" step="1" style="width:100%">' +
+      '<span class="step-label" id="emi-tenure-label">20 years</span>' +
+      '<span class="field__error"></span></div>' +
+      methodHTML('Monthly EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ − 1), where P = principal, r = monthly interest rate (annual rate ÷ 12 ÷ 100), n = tenure in months. This is the standard reducing-balance formula used by Indian banks.') +
+      '</div>' +
+      '<div class="calc-outputs" id="emi-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var tenureEl = document.getElementById('emi-tenure');
+    var tenureLbl = document.getElementById('emi-tenure-label');
+    var amountEl = document.getElementById('emi-amount');
+    var amountLbl = document.getElementById('emi-amount-label');
+    if (tenureEl) tenureEl.addEventListener('input', function () {
+      var y = parseInt(tenureEl.value);
+      tenureLbl.textContent = y + (y === 1 ? ' year' : ' years');
+    });
+    if (amountEl) amountEl.addEventListener('input', function () {
+      var v = parseNum(amountEl.value);
+      amountLbl.textContent = isFinite(v) ? naturalINR(v) : '';
+    });
+    var btn = document.getElementById('emi-calc');
+    if (btn) btn.addEventListener('click', CALCS.emi.calculate);
+  },
+  calculate: function () {
+    var P  = parseNum(document.getElementById('emi-amount').value);
+    var r  = parseNum(document.getElementById('emi-rate').value);
+    var yr = parseInt(document.getElementById('emi-tenure').value) || 20;
+
+    var amountEl = document.getElementById('emi-amount');
+    var rateEl   = document.getElementById('emi-rate');
+    if (!validatePositive(amountEl, 'Loan amount')) return;
+    if (!validateRange(rateEl, 'Interest rate', 1, 36)) return;
+
+    var n   = yr * 12;
+    var rm  = r / 12 / 100;
+    var emi = P * rm * Math.pow(1 + rm, n) / (Math.pow(1 + rm, n) - 1);
+    var totalPay = emi * n;
+    var totalInt = totalPay - P;
+
+    /* Amortisation — yearly summary */
+    var bal = P;
+    var amortRows = '';
+    for (var y = 1; y <= yr; y++) {
+      var yearPrincipal = 0, yearInterest = 0;
+      for (var m = 0; m < 12; m++) {
+        var intPart = bal * rm;
+        var prinPart = emi - intPart;
+        yearPrincipal += prinPart;
+        yearInterest  += intPart;
+        bal -= prinPart;
+      }
+      amortRows += '<tr><td>Year ' + y + '</td><td>' + formatINR(Math.round(emi * 12)) + '</td><td>' +
+        formatINR(Math.round(yearPrincipal)) + '</td><td>' +
+        formatINR(Math.round(yearInterest)) + '</td><td>' +
+        formatINR(Math.max(0, Math.round(bal))) + '</td></tr>';
+    }
+
+    var prinPct = Math.round((P / totalPay) * 100);
+    var intPct  = 100 - prinPct;
+
+    var out = document.getElementById('emi-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">MONTHLY EMI</p>' +
+      '<p class="result-primary__value">' + formatINR(Math.round(emi)) + '</p>' +
+      '<p class="result-primary__sub">' + naturalINR(P) + ' loan @ ' + r + '% for ' + yr + ' yr' + (yr>1?'s':'') + '</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">TOTAL PAYABLE</p><p class="result-cell__value">' + naturalINR(totalPay) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">TOTAL INTEREST</p><p class="result-cell__value">' + naturalINR(totalInt) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">PRINCIPAL</p><p class="result-cell__value">' + naturalINR(P) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">INTEREST RATIO</p><p class="result-cell__value">' + pct(totalInt / P * 100) + '</p></div>' +
+      '</div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Principal repaid</span><span class="bar-row__val">' + naturalINR(P) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="emi-bar-prin"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Interest paid</span><span class="bar-row__val">' + naturalINR(totalInt) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="emi-bar-int"></div></div></div>' +
+      '</div>' +
+      '<details style="margin-top:var(--space-5)"><summary style="font-size:var(--text-sm);font-weight:600;cursor:pointer;padding:var(--space-2) 0;">Year-by-year repayment schedule</summary>' +
+      '<div class="table-scroll" style="margin-top:var(--space-3)"><table class="amort-table">' +
+      '<thead><tr><th>Year</th><th>Annual EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>' +
+      '<tbody>' + amortRows + '</tbody></table></div></details>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('emi-bar-prin'), prinPct);
+      setWidth(document.getElementById('emi-bar-int'), intPct);
+    }, 50);
+
+    CALCS.emi._last = 'EMI: ' + formatINR(Math.round(emi)) + '/month | Total payable: ' + naturalINR(totalPay);
+  },
+  reset: function () {
+    document.getElementById('emi-amount').value = 5000000;
+    document.getElementById('emi-rate').value = 8.1;
+    document.getElementById('emi-tenure').value = 20;
+    document.getElementById('emi-tenure-label').textContent = '20 years';
+    document.getElementById('emi-amount-label').textContent = '₹50 L';
+    var out = document.getElementById('emi-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.emi._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   4. AP STAMP DUTY & REGISTRATION
+   ════════════════════════════════════════════════════════════ */
+CALCS.stampdUty = {
+  cat: 'REGISTRATION',
+  title: 'AP Stamp Duty & Registration',
+  subtitle: 'Sale deed: 5% stamp duty + 1.5% transfer duty + 1% registration fee (Aug 2026)',
+  calcLabel: 'Calculate charges',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="sd-value">Property value / government guideline value, whichever is higher</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="sd-value" value="5000000" min="10000" step="10000"></div>' +
+      '<span class="field__hint field__hint--live" id="sd-value-label">₹50 L</span>' +
+      '<span class="field__error"></span></div>' +
+      selectHTML('sd-type', 'Document type', [
+        { v: 'sale', l: 'Sale deed' },
+        { v: 'gift', l: 'Gift deed (immediate family member)' }
+      ], 'sale', 'Other document types (mortgage, lease, partition) follow different rates — confirm on IGRS AP') +
+      '<div class="info-box" style="margin-top:var(--space-4)">' +
+      '<strong>AP rates (Aug 2026)</strong><br>' +
+      'Sale deed: 5% stamp duty + 1.5% transfer duty + 1% registration fee (uncapped)<br>' +
+      'Family gift deed: 2% stamp duty + 0.5% registration fee (capped ₹1,000–₹10,000), no transfer duty<br>' +
+      '<span class="reg-source">Source: registration.ap.gov.in (IGRS AP). AP revised urban guideline values from 1 Feb 2026 — confirm your property\u2019s current guideline value before relying on this estimate.</span></div>' +
+      methodHTML('For a sale deed, AP charges 5% stamp duty and 1.5% transfer duty on the higher of the market value or the government guideline (circle) value, plus a 1% registration fee with no cap. A gift deed to an immediate family member (spouse, parent, child) is concessional: 2% stamp duty and a 0.5% registration fee capped between ₹1,000 and ₹10,000, with no transfer duty. Verify the binding figure at registration.ap.gov.in before transacting.') +
+      '</div>' +
+      '<div class="calc-outputs" id="sd-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var valEl = document.getElementById('sd-value');
+    var lbl   = document.getElementById('sd-value-label');
+    if (valEl) valEl.addEventListener('input', function () {
+      lbl.textContent = isFinite(parseNum(valEl.value)) ? naturalINR(parseNum(valEl.value)) : '';
+    });
+    var btn = document.getElementById('sd-calc');
+    if (btn) btn.addEventListener('click', CALCS.stampdUty.calculate);
+  },
+  calculate: function () {
+    var valEl  = document.getElementById('sd-value');
+    var typeEl = document.getElementById('sd-type');
+    if (!validatePositive(valEl, 'Property value')) return;
+    var val   = parseNum(valEl.value);
+    var type  = typeEl.value;
+    var C     = CONFIG.APRegistration;
+    var isGift = (type === 'gift');
+
+    var stampRate = isGift ? C.giftStampDuty : C.stampDuty;
+    var stamp     = val * stampRate;
+    var transfer  = isGift ? 0 : (val * C.transferDuty);
+    var regRaw    = val * (isGift ? C.giftRegistrationFee : C.registrationFee);
+    var reg       = isGift ? Math.min(Math.max(regRaw, C.giftRegFeeMin), C.giftRegFeeMax) : regRaw;
+    var total     = stamp + transfer + reg;
+
+    var out = document.getElementById('sd-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">TOTAL REGISTRATION CHARGES</p>' +
+      '<p class="result-primary__value">' + formatINR(Math.round(total)) + '</p>' +
+      '<p class="result-primary__sub">On property value of ' + naturalINR(val) + '</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">STAMP DUTY (' + (stampRate*100) + '%)</p><p class="result-cell__value">' + formatINR(Math.round(stamp)) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">TRANSFER DUTY' + (isGift ? ' (n/a)' : ' (1.5%)') + '</p><p class="result-cell__value">' + formatINR(Math.round(transfer)) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">REGISTRATION FEE' + (isGift ? ' (0.5%, ₹1,000–₹10,000)' : ' (1%, uncapped)') + '</p><p class="result-cell__value">' + formatINR(Math.round(reg)) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">ALL-IN COST</p><p class="result-cell__value">' + naturalINR(val + total) + '</p></div>' +
+      '</div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Stamp duty</span><span class="bar-row__val">' + formatINR(Math.round(stamp)) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="sd-bar-s"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Transfer duty</span><span class="bar-row__val">' + formatINR(Math.round(transfer)) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="sd-bar-t"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Registration fee</span><span class="bar-row__val">' + formatINR(Math.round(reg)) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--green" id="sd-bar-r"></div></div></div>' +
+      '</div>' +
+      '<p class="field__hint" style="margin-top:var(--space-3)">Effective date: ' + C.effectiveDate + '. Rates subject to change — verify at registration.ap.gov.in.</p>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('sd-bar-s'), (stamp / total) * 100);
+      setWidth(document.getElementById('sd-bar-t'), (transfer / total) * 100);
+      setWidth(document.getElementById('sd-bar-r'), (reg / total) * 100);
+    }, 50);
+
+    CALCS.stampdUty._last = 'Total AP registration charges: ' + formatINR(Math.round(total)) + ' on ' + naturalINR(val);
+  },
+  reset: function () {
+    document.getElementById('sd-value').value = 5000000;
+    document.getElementById('sd-value-label').textContent = '₹50 L';
+    document.getElementById('sd-type').value = 'sale';
+    var out = document.getElementById('sd-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.stampdUty._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   5. GST ON PROPERTY
+   ════════════════════════════════════════════════════════════ */
+CALCS.gst = {
+  cat: 'TAXATION',
+  title: 'GST on Under-Construction Property',
+  subtitle: 'Residential 5% · Affordable 1% · Commercial 12% — on 2/3rd of value',
+  calcLabel: 'Calculate GST',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="gst-val">Total consideration / agreement value</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="gst-val" value="5000000" min="1" step="10000"></div>' +
+      '<span class="field__hint field__hint--live" id="gst-val-label">₹50 L</span>' +
+      '<span class="field__error"></span></div>' +
+      selectHTML('gst-type', 'Property classification', [
+        { v: 'residential', l: 'Under-construction residential (5% GST)' },
+        { v: 'affordable',  l: 'Affordable housing (1% GST — ≤₹45L, ≤60/90 sq.m)' },
+        { v: 'commercial',  l: 'Under-construction commercial (12% GST)' },
+        { v: 'completed',   l: 'Completed / resale property (OC issued — Nil GST)' }
+      ], 'residential', 'GST applies only to under-construction properties — not to completed/resale') +
+      '<div class="info-box" style="margin-top:var(--space-4)">' +
+      '<strong>How GST applies</strong><br>' +
+      'GST is charged on 2/3rd of the total consideration (1/3rd is deemed land value and exempt). Rates are without Input Tax Credit (ITC).<br>' +
+      '<span class="reg-source">Source: cbic.gov.in</span></div>' +
+      methodHTML('Taxable value = Total consideration × 2/3 (one-third deducted as land value per GST rules). GST = Taxable value × applicable rate. Residential: 5%, Affordable: 1%, Commercial: 12%. Completed properties with OC are exempt from GST.') +
+      '</div>' +
+      '<div class="calc-outputs" id="gst-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var valEl = document.getElementById('gst-val');
+    var lbl   = document.getElementById('gst-val-label');
+    if (valEl) valEl.addEventListener('input', function () {
+      lbl.textContent = isFinite(parseNum(valEl.value)) ? naturalINR(parseNum(valEl.value)) : '';
+    });
+    var btn = document.getElementById('gst-calc');
+    if (btn) btn.addEventListener('click', CALCS.gst.calculate);
+  },
+  calculate: function () {
+    var valEl  = document.getElementById('gst-val');
+    var typeEl = document.getElementById('gst-type');
+    if (!validatePositive(valEl, 'Consideration value')) return;
+    var val  = parseNum(valEl.value);
+    var type = typeEl.value;
+    var C    = CONFIG.GST;
+
+    if (type === 'completed') {
+      var out = document.getElementById('gst-out');
+      out.innerHTML = '<div class="result-primary"><p class="result-primary__label">GST APPLICABLE</p><p class="result-primary__value" style="font-size:var(--text-xl)">Nil GST</p><p class="result-primary__sub">Completed properties with Occupancy Certificate are exempt from GST.</p></div>';
+      return;
+    }
+
+    var rate    = C[type];
+    var taxBase = val * (1 - C.landDeduction);  /* 2/3 of value */
+    var gstAmt  = taxBase * rate;
+    var total   = val + gstAmt;
+
+    var out = document.getElementById('gst-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">GST AMOUNT (' + (rate * 100) + '%)</p>' +
+      '<p class="result-primary__value">' + formatINR(Math.round(gstAmt)) + '</p>' +
+      '<p class="result-primary__sub">Total payable (incl. GST): ' + naturalINR(total) + '</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">AGREEMENT VALUE</p><p class="result-cell__value">' + naturalINR(val) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">LAND DEDUCTION (1/3)</p><p class="result-cell__value">' + naturalINR(val * C.landDeduction) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">TAXABLE BASE (2/3)</p><p class="result-cell__value">' + naturalINR(taxBase) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">GST RATE</p><p class="result-cell__value">' + (rate * 100) + '% (no ITC)</p></div>' +
+      '</div>' +
+      '<p class="field__hint" style="margin-top:var(--space-3)">GST Council resolution effective Apr 2019. Source: cbic.gov.in. Consult your CA for project-specific applicability.</p>';
+
+    CALCS.gst._last = 'GST: ' + formatINR(Math.round(gstAmt)) + ' (' + (rate*100) + '% on ' + naturalINR(taxBase) + ' taxable base)';
+  },
+  reset: function () {
+    document.getElementById('gst-val').value = 5000000;
+    document.getElementById('gst-val-label').textContent = '₹50 L';
+    document.getElementById('gst-type').value = 'residential';
+    var out = document.getElementById('gst-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.gst._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   6. JDA SHARE CALCULATOR
+   ════════════════════════════════════════════════════════════ */
+CALCS.jda = {
+  cat: 'JDA / DEVELOPMENT',
+  title: 'JDA Share Calculator',
+  subtitle: 'Land extent × share ratio → landowner and developer area and value',
+  calcLabel: 'Calculate shares',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      fieldHTML('jda-area', 'Total land extent (sq.ft)', 'number', 4356, 'e.g. 4356 sq.ft = 4 guntas', 100, 10000000, 1) +
+      fieldHTML('jda-fsiBua', 'Total saleable built-up area (sq.ft)', 'number', 8712, 'Total BUA after FSI / FAR', 100, 50000000, 1) +
+      '<div class="field"><label for="jda-ratio">Landowner : Developer ratio</label>' +
+      '<select id="jda-ratio">' +
+      '<option value="50">50 : 50</option>' +
+      '<option value="55">55 : 45 (landowner)</option>' +
+      '<option value="60" selected>60 : 40 (landowner)</option>' +
+      '<option value="65">65 : 35 (landowner)</option>' +
+      '<option value="70">70 : 30 (landowner)</option>' +
+      '<option value="custom">Custom…</option>' +
+      '</select><span class="field__error"></span></div>' +
+      '<div class="field" id="jda-custom-field" hidden>' +
+      '<label for="jda-custom">Landowner share (%)</label>' +
+      '<div class="input-wrap"><input type="number" id="jda-custom" value="60" min="1" max="99" step="1" class="has-suffix"><span class="suffix">%</span></div>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="jda-rate">Expected sale rate (₹/sq.ft)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="jda-rate" value="4500" min="500" step="100"></div>' +
+      '<span class="field__hint">Used to estimate indicative value — not a committed sale price</span>' +
+      '<span class="field__error"></span></div>' +
+      methodHTML('Landowner\'s share of built-up area = Total BUA × landowner ratio. Developer\'s share = remaining BUA. Indicative value = respective BUA × sale rate. These are starting-point ratios for a JDA conversation — actual agreement may differ.') +
+      '</div>' +
+      '<div class="calc-outputs" id="jda-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var ratioEl  = document.getElementById('jda-ratio');
+    var customFld= document.getElementById('jda-custom-field');
+    ratioEl.addEventListener('change', function () {
+      customFld.hidden = ratioEl.value !== 'custom';
+    });
+    var btn = document.getElementById('jda-calc');
+    if (btn) btn.addEventListener('click', CALCS.jda.calculate);
+  },
+  calculate: function () {
+    var areaEl   = document.getElementById('jda-area');
+    var buaEl    = document.getElementById('jda-fsiBua');
+    var ratioEl  = document.getElementById('jda-ratio');
+    var rateEl   = document.getElementById('jda-rate');
+    if (!validatePositive(areaEl, 'Land extent')) return;
+    if (!validatePositive(buaEl, 'Saleable BUA')) return;
+    if (!validatePositive(rateEl, 'Sale rate')) return;
+
+    var bua  = parseNum(buaEl.value);
+    var rate = parseNum(rateEl.value);
+    var loPct;
+    if (ratioEl.value === 'custom') {
+      var cust = document.getElementById('jda-custom');
+      if (!validateRange(cust, 'Landowner share', 1, 99)) return;
+      loPct = parseNum(cust.value) / 100;
+    } else {
+      loPct = parseInt(ratioEl.value) / 100;
+    }
+    var devPct = 1 - loPct;
+    var loBUA  = bua * loPct;
+    var devBUA = bua * devPct;
+    var loVal  = loBUA * rate;
+    var devVal = devBUA * rate;
+
+    var out = document.getElementById('jda-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">LANDOWNER\'S SHARE VALUE</p>' +
+      '<p class="result-primary__value">' + naturalINR(loVal) + '</p>' +
+      '<p class="result-primary__sub">' + Math.round(loPct*100) + '%  of ' + bua.toLocaleString('en-IN') + ' sq.ft total BUA</p>' +
+      '</div>' +
+      '<div class="compare-cols" style="margin-top:var(--space-4)">' +
+      '<div class="compare-col">' +
+      '<p class="compare-col__head">Landowner</p>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Share</span><span class="compare-col__row-val">' + Math.round(loPct*100) + '%</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">BUA</span><span class="compare-col__row-val">' + loBUA.toLocaleString('en-IN',{maximumFractionDigits:0}) + ' sq.ft</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Est. value</span><span class="compare-col__row-val">' + naturalINR(loVal) + '</span></div>' +
+      '</div>' +
+      '<div class="compare-col">' +
+      '<p class="compare-col__head">Developer (EDITH)</p>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Share</span><span class="compare-col__row-val">' + Math.round(devPct*100) + '%</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">BUA</span><span class="compare-col__row-val">' + devBUA.toLocaleString('en-IN',{maximumFractionDigits:0}) + ' sq.ft</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Est. value</span><span class="compare-col__row-val">' + naturalINR(devVal) + '</span></div>' +
+      '</div></div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Landowner BUA</span><span class="bar-row__val">' + Math.round(loPct*100) + '%</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="jda-bar-lo"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Developer BUA</span><span class="bar-row__val">' + Math.round(devPct*100) + '%</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="jda-bar-dev"></div></div></div>' +
+      '</div>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('jda-bar-lo'), loPct*100);
+      setWidth(document.getElementById('jda-bar-dev'), devPct*100);
+    }, 50);
+
+    CALCS.jda._last = 'JDA landowner share: ' + naturalINR(loVal) + ' (' + Math.round(loPct*100) + '%) · Developer: ' + naturalINR(devVal);
+  },
+  reset: function () {
+    document.getElementById('jda-area').value = 4356;
+    document.getElementById('jda-fsiBua').value = 8712;
+    document.getElementById('jda-ratio').value = '60';
+    document.getElementById('jda-custom-field').hidden = true;
+    document.getElementById('jda-rate').value = 4500;
+    var out = document.getElementById('jda-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.jda._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   7. JV SHARING CALCULATOR (preserves original logic)
+   ════════════════════════════════════════════════════════════ */
+CALCS.jv = {
+  cat: 'JOINT VENTURE',
+  title: 'JV Sharing Calculator',
+  subtitle: 'Contribution-weighted profit split — indicative starting point for discussion',
+  calcLabel: 'Calculate split',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="jv-land">Land value (partner\'s contribution)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="jv-land" value="2000000" min="0" step="100000"></div>' +
+      '<span class="field__hint">Current market value of land the partner brings</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="jv-cash">Capital contribution (partner)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="jv-cash" value="500000" min="0" step="100000"></div>' +
+      '<span class="field__hint">Additional cash, materials, or other partner investment</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="jv-edith">EDITH\'s contribution (construction / expertise)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="jv-edith" value="3000000" min="0" step="100000"></div>' +
+      '<span class="field__hint">Construction cost + project management value</span>' +
+      '<span class="field__error"></span></div>' +
+      methodHTML('Each party\'s share = their contribution ÷ total combined contributions × 100. This is a weighted starting point for a JV negotiation — the final agreement may account for risk, expertise, market conditions, and other factors not captured here.') +
+      '</div>' +
+      '<div class="calc-outputs" id="jv-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var btn = document.getElementById('jv-calc');
+    if (btn) btn.addEventListener('click', CALCS.jv.calculate);
+  },
+  calculate: function () {
+    var land  = parseNum(document.getElementById('jv-land').value) || 0;
+    var cash  = parseNum(document.getElementById('jv-cash').value) || 0;
+    var edith = parseNum(document.getElementById('jv-edith').value) || 0;
+
+    if (land < 0 || cash < 0 || edith < 0) { showToast('Values cannot be negative.'); return; }
+    var partnerTotal = land + cash;
+    var grandTotal   = partnerTotal + edith;
+    if (grandTotal <= 0) { showToast('Total contributions must be greater than zero.'); return; }
+
+    var partnerShare = Math.round((partnerTotal / grandTotal) * 100);
+    var edithShare   = 100 - partnerShare;
+
+    var out = document.getElementById('jv-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">INDICATIVE SPLIT</p>' +
+      '<p class="result-primary__value">' + partnerShare + '% : ' + edithShare + '%</p>' +
+      '<p class="result-primary__sub">You : EDITH — starting point for negotiation only</p>' +
+      '</div>' +
+      '<div class="result-grid" style="margin-top:var(--space-4)">' +
+      '<div class="result-cell"><p class="result-cell__label">PARTNER TOTAL</p><p class="result-cell__value">' + naturalINR(partnerTotal) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">EDITH CONTRIBUTION</p><p class="result-cell__value">' + naturalINR(edith) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">TOTAL PROJECT VALUE</p><p class="result-cell__value">' + naturalINR(grandTotal) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">LAND VALUE</p><p class="result-cell__value">' + naturalINR(land) + '</p></div>' +
+      '</div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Your share</span><span class="bar-row__val">' + partnerShare + '%</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="jv-bar-p"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">EDITH\'s share</span><span class="bar-row__val">' + edithShare + '%</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="jv-bar-e"></div></div></div>' +
+      '</div>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('jv-bar-p'), partnerShare);
+      setWidth(document.getElementById('jv-bar-e'), edithShare);
+    }, 50);
+
+    CALCS.jv._last = 'JV split: ' + partnerShare + '% (you) : ' + edithShare + '% (EDITH) on total of ' + naturalINR(grandTotal);
+  },
+  reset: function () {
+    document.getElementById('jv-land').value  = 2000000;
+    document.getElementById('jv-cash').value  = 500000;
+    document.getElementById('jv-edith').value = 3000000;
+    var out = document.getElementById('jv-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.jv._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   8. INVESTOR ROI PROJECTION
+   ════════════════════════════════════════════════════════════ */
+CALCS.roi = {
+  cat: 'INVESTMENT',
+  title: 'Investor ROI Projection',
+  subtitle: 'Total return, ROI %, and CAGR from investment inputs',
+  calcLabel: 'Project returns',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="roi-invest">Initial investment</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="roi-invest" value="2000000" min="1" step="50000"></div>' +
+      '<span class="field__hint field__hint--live" id="roi-invest-lbl">₹20 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="roi-income">Annual rental / income (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="roi-income" value="120000" min="0" step="10000"></div>' +
+      '<span class="field__hint">Enter 0 if no regular income</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="roi-expense">Annual expenses (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="roi-expense" value="20000" min="0" step="5000"></div>' +
+      '<span class="field__hint">Maintenance, property tax, vacancy, etc.</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="roi-exit">Expected exit / sale value (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="roi-exit" value="3500000" min="0" step="50000"></div>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="roi-tenure">Holding period</label>' +
+      '<input type="range" id="roi-tenure" value="5" min="1" max="25" step="1" style="width:100%">' +
+      '<span class="step-label" id="roi-tenure-lbl">5 years</span>' +
+      '</div>' +
+      methodHTML('Total return = Net annual income × years + (exit value − initial investment). ROI % = Total return ÷ Initial investment × 100. CAGR = (Exit value ÷ Initial investment)^(1/years) − 1, applied to the capital portion only. IRR is not calculated here — use a spreadsheet for multi-period variable cash flows.') +
+      '</div>' +
+      '<div class="calc-outputs" id="roi-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var invEl  = document.getElementById('roi-invest');
+    var invLbl = document.getElementById('roi-invest-lbl');
+    var tenEl  = document.getElementById('roi-tenure');
+    var tenLbl = document.getElementById('roi-tenure-lbl');
+    if (invEl) invEl.addEventListener('input', function () {
+      invLbl.textContent = isFinite(parseNum(invEl.value)) ? naturalINR(parseNum(invEl.value)) : '';
+    });
+    if (tenEl) tenEl.addEventListener('input', function () {
+      tenLbl.textContent = tenEl.value + ' year' + (parseInt(tenEl.value) > 1 ? 's' : '');
+    });
+    var btn = document.getElementById('roi-calc');
+    if (btn) btn.addEventListener('click', CALCS.roi.calculate);
+  },
+  calculate: function () {
+    var invEl  = document.getElementById('roi-invest');
+    var exitEl = document.getElementById('roi-exit');
+    if (!validatePositive(invEl, 'Initial investment')) return;
+    var inv     = parseNum(invEl.value);
+    var income  = parseNum(document.getElementById('roi-income').value) || 0;
+    var expense = parseNum(document.getElementById('roi-expense').value) || 0;
+    var exit    = parseNum(exitEl.value) || 0;
+    var yrs     = parseInt(document.getElementById('roi-tenure').value) || 5;
+
+    var netAnnual   = income - expense;
+    var totalIncome = netAnnual * yrs;
+    var capitalGain = exit - inv;
+    var totalReturn = totalIncome + capitalGain;
+    var roi         = (totalReturn / inv) * 100;
+    var cagr        = exit > 0 ? (Math.pow(exit / inv, 1 / yrs) - 1) * 100 : 0;
+
+    /* Year-by-year table */
+    var rows = '';
+    for (var y = 1; y <= yrs; y++) {
+      var cumIncome = netAnnual * y;
+      var projVal   = inv * Math.pow(1 + cagr / 100, y);
+      rows += '<tr><td>Year ' + y + '</td><td>' + formatINR(Math.round(netAnnual)) + '</td><td>' +
+        formatINR(Math.round(cumIncome)) + '</td><td>' + formatINR(Math.round(projVal)) + '</td></tr>';
+    }
+
+    var out = document.getElementById('roi-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">TOTAL RETURN</p>' +
+      '<p class="result-primary__value">' + naturalINR(totalReturn) + '</p>' +
+      '<p class="result-primary__sub">Over ' + yrs + ' year' + (yrs>1?'s':'') + ' on ' + naturalINR(inv) + ' investment</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">ROI</p><p class="result-cell__value">' + pct(roi) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">CAPITAL CAGR</p><p class="result-cell__value">' + pct(cagr) + ' p.a.</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">NET ANNUAL INCOME</p><p class="result-cell__value">' + naturalINR(netAnnual) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">CAPITAL GAIN</p><p class="result-cell__value">' + naturalINR(capitalGain) + '</p></div>' +
+      '</div>' +
+      '<details style="margin-top:var(--space-5)"><summary style="font-size:var(--text-sm);font-weight:600;cursor:pointer;padding:var(--space-2) 0">Year-by-year projection</summary>' +
+      '<div class="table-scroll" style="margin-top:var(--space-3)"><table class="amort-table">' +
+      '<thead><tr><th>Year</th><th>Net income</th><th>Cumulative income</th><th>Projected value</th></tr></thead>' +
+      '<tbody>' + rows + '</tbody></table></div></details>';
+
+    CALCS.roi._last = 'Total return: ' + naturalINR(totalReturn) + ' · ROI: ' + pct(roi) + ' · CAGR: ' + pct(cagr) + ' p.a.';
+  },
+  reset: function () {
+    document.getElementById('roi-invest').value  = 2000000;
+    document.getElementById('roi-income').value  = 120000;
+    document.getElementById('roi-expense').value = 20000;
+    document.getElementById('roi-exit').value    = 3500000;
+    document.getElementById('roi-tenure').value  = 5;
+    document.getElementById('roi-tenure-lbl').textContent = '5 years';
+    document.getElementById('roi-invest-lbl').textContent = '₹20 L';
+    var out = document.getElementById('roi-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.roi._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   9. RENTAL YIELD
+   ════════════════════════════════════════════════════════════ */
+CALCS.rental = {
+  cat: 'RENTAL',
+  title: 'Rental Yield Calculator',
+  subtitle: 'Gross and net yield with income and expense breakdown',
+  calcLabel: 'Calculate yield',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="ry-price">Purchase price</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="ry-price" value="5000000" min="1" step="100000"></div>' +
+      '<span class="field__hint field__hint--live" id="ry-price-lbl">₹50 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="ry-rent">Monthly rent (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="ry-rent" value="20000" min="0" step="1000"></div>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="ry-maint">Annual maintenance &amp; repairs (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="ry-maint" value="24000" min="0" step="1000"></div>' +
+      '</div>' +
+      '<div class="field"><label for="ry-ptax">Annual property tax (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="ry-ptax" value="8000" min="0" step="1000"></div>' +
+      '</div>' +
+      '<div class="field"><label for="ry-vacancy">Vacancy rate (%)</label>' +
+      '<div class="input-wrap"><input type="number" id="ry-vacancy" value="8" min="0" max="100" step="1" class="has-suffix"><span class="suffix">%</span></div>' +
+      '<span class="field__hint">Percentage of the year the property is unoccupied</span>' +
+      '</div>' +
+      methodHTML('Gross yield = (Annual rent ÷ Purchase price) × 100. Annual rent = Monthly rent × 12 × (1 − vacancy %). Net yield = (Net annual income ÷ Purchase price) × 100. Net annual income = Effective annual rent − maintenance − property tax.') +
+      '</div>' +
+      '<div class="calc-outputs" id="ry-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var priceEl = document.getElementById('ry-price');
+    var priceLbl= document.getElementById('ry-price-lbl');
+    if (priceEl) priceEl.addEventListener('input', function () {
+      priceLbl.textContent = isFinite(parseNum(priceEl.value)) ? naturalINR(parseNum(priceEl.value)) : '';
+    });
+    var btn = document.getElementById('ry-calc');
+    if (btn) btn.addEventListener('click', CALCS.rental.calculate);
+  },
+  calculate: function () {
+    var priceEl   = document.getElementById('ry-price');
+    var rentEl    = document.getElementById('ry-rent');
+    if (!validatePositive(priceEl, 'Purchase price')) return;
+    if (!validatePositive(rentEl, 'Monthly rent')) return;
+
+    var price    = parseNum(priceEl.value);
+    var rent     = parseNum(rentEl.value);
+    var maint    = parseNum(document.getElementById('ry-maint').value) || 0;
+    var ptax     = parseNum(document.getElementById('ry-ptax').value) || 0;
+    var vacPct   = (parseNum(document.getElementById('ry-vacancy').value) || 0) / 100;
+
+    var annualGross = rent * 12;
+    var effectiveRent = annualGross * (1 - vacPct);
+    var totalExp     = maint + ptax;
+    var netIncome    = effectiveRent - totalExp;
+    var grossYield   = (annualGross / price) * 100;
+    var netYield     = (netIncome / price) * 100;
+
+    var out = document.getElementById('ry-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">NET RENTAL YIELD</p>' +
+      '<p class="result-primary__value">' + netYield.toFixed(2) + '%</p>' +
+      '<p class="result-primary__sub">Gross yield: ' + grossYield.toFixed(2) + '% on ' + naturalINR(price) + '</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">ANNUAL GROSS RENT</p><p class="result-cell__value">' + naturalINR(annualGross) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">EFFECTIVE RENT</p><p class="result-cell__value">' + naturalINR(effectiveRent) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">ANNUAL EXPENSES</p><p class="result-cell__value">' + naturalINR(totalExp) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">NET ANNUAL INCOME</p><p class="result-cell__value">' + naturalINR(netIncome) + '</p></div>' +
+      '</div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Effective rent</span><span class="bar-row__val">' + naturalINR(effectiveRent) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--green" id="ry-bar-rent"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Expenses</span><span class="bar-row__val">' + naturalINR(totalExp) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="ry-bar-exp"></div></div></div>' +
+      '</div>';
+
+    var maxBar = Math.max(effectiveRent, totalExp);
+    setTimeout(function () {
+      setWidth(document.getElementById('ry-bar-rent'), (effectiveRent / maxBar) * 100);
+      setWidth(document.getElementById('ry-bar-exp'), (totalExp / maxBar) * 100);
+    }, 50);
+
+    CALCS.rental._last = 'Net rental yield: ' + netYield.toFixed(2) + '% · Gross: ' + grossYield.toFixed(2) + '%';
+  },
+  reset: function () {
+    document.getElementById('ry-price').value   = 5000000;
+    document.getElementById('ry-rent').value    = 20000;
+    document.getElementById('ry-maint').value   = 24000;
+    document.getElementById('ry-ptax').value    = 8000;
+    document.getElementById('ry-vacancy').value = 8;
+    document.getElementById('ry-price-lbl').textContent = '₹50 L';
+    var out = document.getElementById('ry-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.rental._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   10. PLOT VS FLAT
+   ════════════════════════════════════════════════════════════ */
+CALCS.plotvflat = {
+  cat: 'COMPARISON',
+  title: 'Plot vs Flat Comparison',
+  subtitle: '10-year side-by-side projection — numbers, not a verdict',
+  calcLabel: 'Compare now',
+  html: function () {
+    return '<div>' +
+      '<div class="tabs">' +
+      '<button class="tab-btn is-active" data-tab="pvf-plot">Plot</button>' +
+      '<button class="tab-btn" data-tab="pvf-flat">Flat</button>' +
+      '<button class="tab-btn" data-tab="pvf-compare">Compare</button>' +
+      '</div>' +
+      '<div class="tab-panel is-active" id="pvf-plot">' +
+      '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="pvf-plot-cost">Plot purchase cost</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-plot-cost" value="3000000" min="1" step="100000"></div>' +
+      '<span class="field__hint field__hint--live" id="pvf-plot-cost-lbl">₹30 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="pvf-plot-reg">Registration &amp; other upfront costs</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-plot-reg" value="200000" min="0" step="10000"></div></div>' +
+      '<div class="field"><label for="pvf-plot-appr">Annual appreciation (%)</label>' +
+      '<div class="input-wrap"><input type="number" id="pvf-plot-appr" value="8" min="0" max="50" step="0.5" class="has-suffix"><span class="suffix">%</span></div>' +
+      '<span class="field__hint">Historical AP plot appreciation: 7–12% p.a. in growth corridors</span></div>' +
+      '<div class="field"><label for="pvf-plot-hold">Holding period</label>' +
+      '<input type="range" id="pvf-plot-hold" value="10" min="1" max="25" step="1" style="width:100%">' +
+      '<span class="step-label" id="pvf-plot-hold-lbl">10 years</span></div>' +
+      '</div></div></div>' +
+      '<div class="tab-panel" id="pvf-flat">' +
+      '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="pvf-flat-cost">Flat purchase cost</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-flat-cost" value="4000000" min="1" step="100000"></div>' +
+      '<span class="field__hint field__hint--live" id="pvf-flat-cost-lbl">₹40 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="pvf-flat-reg">Registration + GST + upfront costs</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-flat-reg" value="400000" min="0" step="10000"></div></div>' +
+      '<div class="field"><label for="pvf-flat-maint">Annual maintenance (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-flat-maint" value="36000" min="0" step="1000"></div></div>' +
+      '<div class="field"><label for="pvf-flat-rent">Monthly rent received (₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="pvf-flat-rent" value="18000" min="0" step="1000"></div>' +
+      '<span class="field__hint">Enter 0 if self-occupied</span></div>' +
+      '<div class="field"><label for="pvf-flat-appr">Annual appreciation (%)</label>' +
+      '<div class="input-wrap"><input type="number" id="pvf-flat-appr" value="5" min="0" max="50" step="0.5" class="has-suffix"><span class="suffix">%</span></div></div>' +
+      '</div></div></div>' +
+      '<div class="tab-panel" id="pvf-compare">' +
+      '<div id="pvf-compare-out">' + emptyState() + '</div></div>' +
+      methodHTML('Plot: Future value = Cost × (1+appreciation)^years. Total cost = purchase + registration (no ongoing maintenance assumed). Net gain = Future value − Total cost. Flat: Future value = Cost × (1+appreciation)^years. Total income = Rent × 12 × years. Net recurring cost = Maintenance × years. Net gain = Future value + Total income − Total cost − Recurring cost.') +
+      '</div>';
+  },
+  init: function () {
+    /* Tabs */
+    document.querySelectorAll('.tab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('is-active'); });
+        document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        var panel = document.getElementById(target);
+        if (panel) panel.classList.add('is-active');
+      });
+    });
+    /* Live labels */
+    [['pvf-plot-cost', 'pvf-plot-cost-lbl'], ['pvf-flat-cost', 'pvf-flat-cost-lbl']].forEach(function (pair) {
+      var el  = document.getElementById(pair[0]);
+      var lbl = document.getElementById(pair[1]);
+      if (el) el.addEventListener('input', function () {
+        lbl.textContent = isFinite(parseNum(el.value)) ? naturalINR(parseNum(el.value)) : '';
+      });
+    });
+    var holdEl = document.getElementById('pvf-plot-hold');
+    var holdLbl= document.getElementById('pvf-plot-hold-lbl');
+    if (holdEl) holdEl.addEventListener('input', function () {
+      holdLbl.textContent = holdEl.value + ' years';
+    });
+    var btn = document.getElementById('pvf-calc');
+    if (btn) btn.addEventListener('click', CALCS.plotvflat.calculate);
+  },
+  calculate: function () {
+    var plotCostEl = document.getElementById('pvf-plot-cost');
+    var flatCostEl = document.getElementById('pvf-flat-cost');
+    if (!validatePositive(plotCostEl, 'Plot cost')) { CALCS.plotvflat.switchTab('pvf-plot'); return; }
+    if (!validatePositive(flatCostEl, 'Flat cost')) { CALCS.plotvflat.switchTab('pvf-flat'); return; }
+
+    var pCost  = parseNum(plotCostEl.value);
+    var pReg   = parseNum(document.getElementById('pvf-plot-reg').value) || 0;
+    var pAppr  = (parseNum(document.getElementById('pvf-plot-appr').value) || 8) / 100;
+    var yrs    = parseInt(document.getElementById('pvf-plot-hold').value) || 10;
+
+    var fCost  = parseNum(flatCostEl.value);
+    var fReg   = parseNum(document.getElementById('pvf-flat-reg').value) || 0;
+    var fMaint = parseNum(document.getElementById('pvf-flat-maint').value) || 0;
+    var fRent  = (parseNum(document.getElementById('pvf-flat-rent').value) || 0) * 12;
+    var fAppr  = (parseNum(document.getElementById('pvf-flat-appr').value) || 5) / 100;
+
+    /* Plot */
+    var pFV         = pCost * Math.pow(1 + pAppr, yrs);
+    var pTotalCost  = pCost + pReg;
+    var pGain       = pFV - pTotalCost;
+    var pROI        = (pGain / pTotalCost) * 100;
+    var pCAGR       = (Math.pow(pFV / pTotalCost, 1/yrs) - 1) * 100;
+
+    /* Flat */
+    var fFV         = fCost * Math.pow(1 + fAppr, yrs);
+    var fTotalCost  = fCost + fReg;
+    var fMaintTotal = fMaint * yrs;
+    var fRentTotal  = fRent * yrs;
+    var fGain       = fFV + fRentTotal - fTotalCost - fMaintTotal;
+    var fROI        = (fGain / fTotalCost) * 100;
+    var fCAGR       = (Math.pow(fFV / fTotalCost, 1/yrs) - 1) * 100;
+
+    CALCS.plotvflat.switchTab('pvf-compare');
+
+    var out = document.getElementById('pvf-compare-out');
+    out.innerHTML =
+      '<div class="compare-cols">' +
+      '<div class="compare-col">' +
+      '<p class="compare-col__head">Plot</p>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Total cost</span><span class="compare-col__row-val">' + naturalINR(pTotalCost) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Value in ' + yrs + ' yr</span><span class="compare-col__row-val">' + naturalINR(pFV) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Capital gain</span><span class="compare-col__row-val">' + naturalINR(pGain) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">ROI</span><span class="compare-col__row-val">' + pROI.toFixed(1) + '%</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">CAGR</span><span class="compare-col__row-val">' + pCAGR.toFixed(1) + '% p.a.</span></div>' +
+      '</div>' +
+      '<div class="compare-col">' +
+      '<p class="compare-col__head">Flat</p>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Total cost</span><span class="compare-col__row-val">' + naturalINR(fTotalCost) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Value in ' + yrs + ' yr</span><span class="compare-col__row-val">' + naturalINR(fFV) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Total rent income</span><span class="compare-col__row-val">' + naturalINR(fRentTotal) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Net gain (incl. rent)</span><span class="compare-col__row-val">' + naturalINR(fGain) + '</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">ROI (incl. rent)</span><span class="compare-col__row-val">' + fROI.toFixed(1) + '%</span></div>' +
+      '<div class="compare-col__row"><span class="compare-col__row-label">Capital CAGR</span><span class="compare-col__row-val">' + fCAGR.toFixed(1) + '% p.a.</span></div>' +
+      '</div></div>' +
+      '<div class="info-box" style="margin-top:var(--space-5)"><strong>These are projections, not predictions.</strong> Plot appreciation depends heavily on location, road connectivity, and local market conditions. Flat appreciation depends on builder quality, society maintenance, and micromarket demand. Verify your specific assumptions before deciding.</div>';
+
+    CALCS.plotvflat._last = 'Plot ROI: ' + pROI.toFixed(1) + '% · Flat ROI: ' + fROI.toFixed(1) + '% (over ' + yrs + ' years)';
+  },
+  switchTab: function (tabId) {
+    document.querySelectorAll('.tab-btn').forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.tab === tabId);
+    });
+    document.querySelectorAll('.tab-panel').forEach(function (p) {
+      p.classList.toggle('is-active', p.id === tabId);
+    });
+  },
+  reset: function () {
+    document.getElementById('pvf-plot-cost').value = 3000000;
+    document.getElementById('pvf-plot-reg').value  = 200000;
+    document.getElementById('pvf-plot-appr').value = 8;
+    document.getElementById('pvf-plot-hold').value = 10;
+    document.getElementById('pvf-flat-cost').value = 4000000;
+    document.getElementById('pvf-flat-reg').value  = 400000;
+    document.getElementById('pvf-flat-maint').value= 36000;
+    document.getElementById('pvf-flat-rent').value = 18000;
+    document.getElementById('pvf-flat-appr').value = 5;
+    document.getElementById('pvf-compare-out').innerHTML = emptyState();
+    CALCS.plotvflat.switchTab('pvf-plot');
+  },
+  copyText: function () { return CALCS.plotvflat._last || ''; }
+};
+
+/* ════════════════════════════════════════════════════════════
+   11. PROJECT FEASIBILITY
+   ════════════════════════════════════════════════════════════ */
+CALCS.feasibility = {
+  cat: 'FEASIBILITY',
+  title: 'Project Feasibility & Break-even',
+  subtitle: 'Total cost → profit, margin, and minimum break-even rate per sq.ft',
+  calcLabel: 'Run feasibility',
+  html: function () {
+    return '<div class="calc-workspace">' +
+      '<div class="calc-inputs">' +
+      '<div class="field"><label for="fs-land">Land cost</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="fs-land" value="5000000" min="0" step="100000"></div>' +
+      '<span class="field__hint field__hint--live" id="fs-land-lbl">₹50 L</span>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="fs-const">Construction cost</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="fs-const" value="8000000" min="0" step="100000"></div>' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="fs-other">Approvals, fees &amp; other costs</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="fs-other" value="500000" min="0" step="50000"></div>' +
+      '</div>' +
+      '<div class="field"><label for="fs-financing">Financing cost (interest on loans, ₹)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="fs-financing" value="600000" min="0" step="50000"></div>' +
+      '</div>' +
+      '<div class="field"><label for="fs-saleable">Total saleable area (sq.ft)</label>' +
+      '<input type="number" id="fs-saleable" value="6000" min="1" step="100">' +
+      '<span class="field__error"></span></div>' +
+      '<div class="field"><label for="fs-rate">Expected sale rate (₹/sq.ft)</label>' +
+      '<div class="input-wrap"><span class="prefix">₹</span><input type="number" id="fs-rate" value="4500" min="1" step="100"></div>' +
+      '<span class="field__error"></span></div>' +
+      methodHTML('Total project cost = Land + Construction + Other + Financing. Expected revenue = Saleable area × Sale rate. Profit = Revenue − Cost. Margin = Profit ÷ Revenue × 100. Break-even rate = Total cost ÷ Saleable area. Sensitivity shows profit at ±10% and ±20% variation in sale rate.') +
+      '</div>' +
+      '<div class="calc-outputs" id="fs-out">' + emptyState() + '</div></div>';
+  },
+  init: function () {
+    var landEl  = document.getElementById('fs-land');
+    var landLbl = document.getElementById('fs-land-lbl');
+    if (landEl) landEl.addEventListener('input', function () {
+      landLbl.textContent = isFinite(parseNum(landEl.value)) ? naturalINR(parseNum(landEl.value)) : '';
+    });
+    var btn = document.getElementById('fs-calc');
+    if (btn) btn.addEventListener('click', CALCS.feasibility.calculate);
+  },
+  calculate: function () {
+    var landEl     = document.getElementById('fs-land');
+    var constEl    = document.getElementById('fs-const');
+    var saleableEl = document.getElementById('fs-saleable');
+    var rateEl     = document.getElementById('fs-rate');
+    if (!validatePositive(saleableEl, 'Saleable area')) return;
+    if (!validatePositive(rateEl, 'Sale rate')) return;
+
+    var land      = parseNum(landEl.value) || 0;
+    var constr    = parseNum(constEl.value) || 0;
+    var other     = parseNum(document.getElementById('fs-other').value) || 0;
+    var financing = parseNum(document.getElementById('fs-financing').value) || 0;
+    var saleable  = parseNum(saleableEl.value);
+    var rate      = parseNum(rateEl.value);
+
+    var totalCost  = land + constr + other + financing;
+    var revenue    = saleable * rate;
+    var profit     = revenue - totalCost;
+    var margin     = (profit / revenue) * 100;
+    var bepRate    = totalCost / saleable;
+
+    /* Sensitivity */
+    var sens = [-20, -10, 0, 10, 20].map(function (v) {
+      var adjRate = rate * (1 + v / 100);
+      var adjRev  = saleable * adjRate;
+      var adjProfit = adjRev - totalCost;
+      var adjMargin = (adjProfit / adjRev) * 100;
+      return { v: v, rate: adjRate, revenue: adjRev, profit: adjProfit, margin: adjMargin };
+    });
+    var sensRows = sens.map(function (s) {
+      var color = s.profit >= 0 ? 'var(--edith-green-600)' : 'var(--edith-error)';
+      return '<tr><td>' + (s.v >= 0 ? '+' : '') + s.v + '%</td><td>' + formatINR(Math.round(s.rate)) + '</td><td>' + naturalINR(s.revenue) + '</td><td style="color:' + color + '">' + naturalINR(s.profit) + '</td><td style="color:' + color + '">' + s.margin.toFixed(1) + '%</td></tr>';
+    }).join('');
+
+    var isViable = profit >= 0;
+    var out = document.getElementById('fs-out');
+    out.innerHTML =
+      '<div class="result-primary">' +
+      '<p class="result-primary__label">ESTIMATED PROFIT</p>' +
+      '<p class="result-primary__value" style="color:' + (isViable ? 'var(--edith-gold-500)' : 'var(--edith-error)') + '">' + naturalINR(profit) + '</p>' +
+      '<p class="result-primary__sub">Margin: ' + margin.toFixed(1) + '% · Break-even: ' + formatINR(Math.round(bepRate)) + '/sq.ft</p>' +
+      '</div>' +
+      '<div class="result-grid">' +
+      '<div class="result-cell"><p class="result-cell__label">TOTAL PROJECT COST</p><p class="result-cell__value">' + naturalINR(totalCost) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">EXPECTED REVENUE</p><p class="result-cell__value">' + naturalINR(revenue) + '</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">BREAK-EVEN RATE</p><p class="result-cell__value">' + formatINR(Math.round(bepRate)) + '/sq.ft</p></div>' +
+      '<div class="result-cell"><p class="result-cell__label">MARGIN</p><p class="result-cell__value">' + margin.toFixed(1) + '%</p></div>' +
+      '</div>' +
+      '<div class="bar-chart" style="margin-top:var(--space-4)">' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Land</span><span class="bar-row__val">' + naturalINR(land) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--navy" id="fs-bar-land"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Construction</span><span class="bar-row__val">' + naturalINR(constr) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--gold" id="fs-bar-const"></div></div></div>' +
+      '<div class="bar-row"><div class="bar-row__header"><span class="bar-row__label">Other &amp; financing</span><span class="bar-row__val">' + naturalINR(other+financing) + '</span></div><div class="bar-track"><div class="bar-fill bar-fill--slate" id="fs-bar-other"></div></div></div>' +
+      '</div>' +
+      '<details style="margin-top:var(--space-5)"><summary style="font-size:var(--text-sm);font-weight:600;cursor:pointer;padding:var(--space-2) 0">Sensitivity analysis (±20% on sale rate)</summary>' +
+      '<div class="table-scroll" style="margin-top:var(--space-3)"><table class="amort-table">' +
+      '<thead><tr><th>Rate change</th><th>Rate/sq.ft</th><th>Revenue</th><th>Profit</th><th>Margin</th></tr></thead>' +
+      '<tbody>' + sensRows + '</tbody></table></div></details>';
+
+    setTimeout(function () {
+      setWidth(document.getElementById('fs-bar-land'),  (land / totalCost) * 100);
+      setWidth(document.getElementById('fs-bar-const'), (constr / totalCost) * 100);
+      setWidth(document.getElementById('fs-bar-other'), ((other + financing) / totalCost) * 100);
+    }, 50);
+
+    CALCS.feasibility._last = 'Project feasibility: profit ' + naturalINR(profit) + ' · margin ' + margin.toFixed(1) + '% · break-even ' + formatINR(Math.round(bepRate)) + '/sq.ft';
+  },
+  reset: function () {
+    document.getElementById('fs-land').value      = 5000000;
+    document.getElementById('fs-const').value     = 8000000;
+    document.getElementById('fs-other').value     = 500000;
+    document.getElementById('fs-financing').value = 600000;
+    document.getElementById('fs-saleable').value  = 6000;
+    document.getElementById('fs-rate').value      = 4500;
+    document.getElementById('fs-land-lbl').textContent = '₹50 L';
+    var out = document.getElementById('fs-out'); if (out) out.innerHTML = emptyState();
+  },
+  copyText: function () { return CALCS.feasibility._last || ''; }
+};
+
+/* ── CARD CLICK BINDINGS ────────────────────────────────────────────────── */
+document.querySelectorAll('.calc-card[data-calc]').forEach(function (card) {
+  card.addEventListener('click', function () {
+    openModal(card.dataset.calc);
+  });
+  card.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.calc); }
+  });
+});
+
+/* ── MISC ────────────────────────────────────────────────────────────────── */
+document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+/* Search overlay */
+var searchOpen  = document.getElementById('searchOpen');
+var searchClose = document.getElementById('searchClose');
+var searchOv    = document.getElementById('searchOverlay');
+if (searchOpen)  searchOpen.addEventListener('click',  function () { searchOv.classList.add('is-open'); document.getElementById('siteSearch').focus(); });
+if (searchClose) searchClose.addEventListener('click', function () { searchOv.classList.remove('is-open'); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') searchOv.classList.remove('is-open'); });
+</script>
+
 </body>
 </html>
